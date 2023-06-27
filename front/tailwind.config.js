@@ -6,10 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      colors:{
-        'vintage-beige':'#F7F0ED',
-        'vintage-brown':'#421F00',
-      }
+
+      colors: {
+        'beige': "#F7F0ED",
+        'dark-brown' : "#421F00",
+      },
     },
   },
   plugins: [],
