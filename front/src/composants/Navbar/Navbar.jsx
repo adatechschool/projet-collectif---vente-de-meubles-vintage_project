@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div className='bg-blue-600 h-40'>
+    <div className='bg-blue-600 h-20'>
       <ul className='flex'>
         <li className="text-3xl text-red-600 font-bold underline">Vintage</li>
         <li>Image Soleil</li>
