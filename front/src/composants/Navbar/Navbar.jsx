@@ -2,13 +2,17 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div className='Navbar'>
-        <h1 className="text-3xl text-red-600 font-bold underline">Vintage</h1>
-        <p>Image Soleil</p>
-        <p>Icone Panier</p>
-        <p>Component Menu à créer</p>
+    <div className='bg-blue-600 h-40'>
+      <ul className='flex'>
+        <li className="text-3xl text-red-600 font-bold underline">Vintage</li>
+        <li>Image Soleil</li>
+        <li>Icone Panier</li>
+        <li>Component Menu à créer</li>
+      </ul>
+    
     </div>
+
   )
 }
 
-export default Navbar
+export default Navbar;
