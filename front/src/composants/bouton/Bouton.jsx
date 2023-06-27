@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Bouton() {
+const Bouton = (props) => {
   return (
-    <button>Se connecter</button>
+    <button>{props.texteBouton}</button>
   )
 }
 

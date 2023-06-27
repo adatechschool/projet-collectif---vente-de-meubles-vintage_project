@@ -6,7 +6,7 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
-      <Link to="/accueil"><Bouton/></Link>
+      <Link to="/accueil"><Bouton texteBouton="Se connecter"/></Link>
     </div>
   )
 }
