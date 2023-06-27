@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function Accueil() {
+function Accueil() {
   return (
     <div>Accueil</div>
   )
 }
+export default Accueil;
