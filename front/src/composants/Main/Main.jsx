@@ -1,9 +1,10 @@
 import React from 'react'
+import Vignette from '../Vignette/Vignette'
 
 function Main() {
   return (
     <div className='h-96'>
-        <p>Ici il y aura des vignettes</p>
+        <Vignette/>
     </div>
   )
 }
