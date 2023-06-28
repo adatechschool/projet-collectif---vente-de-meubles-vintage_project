@@ -10,7 +10,7 @@ function test(){
   console.log(prenom)
   console.log(email)
   const data = {
-    name : 'test'
+    name : nom
   }
 
 
