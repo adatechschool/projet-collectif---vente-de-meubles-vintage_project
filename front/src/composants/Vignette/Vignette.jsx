@@ -4,7 +4,7 @@ import noImage from '../../assets/img_vignette/img_non_dispo.jpg'
 
 function Vignette() {
   return (
-    <div className='Global h-80 w-72 p-2 bg-orange-500'>
+    <div className='Global h-80 w-72 p-2 m-2 bg-orange-500'>
         <div className='image h-4/6'>
             <img src={noImage} className='h-full w-full object-cover'/>
         </div>
