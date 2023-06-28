@@ -9,17 +9,23 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/", express.static("./client/"))
 
 app.use(express.json())
 
 app.use('/',router)
-
-app.get('/',(req,res,next)=>{
+app.post('/test',(req,res,next)=>{
   console.log('test 1er get')
-  res.status(201).json({message: '1er get'})
+ 
 
   next()
 })
+// app.get('/',(req,res,next)=>{
+//   console.log('test 1er get')
+//   res.status(201).json({message: '1er get'})
+
+//   next()
+// })
 
 
 
@@ -55,27 +61,7 @@ app.get('/test/stuff',(req,res,next)=>{
 
 
 // });
-// function test(){
-//     const url = "http://localhost:8080/test"
-//     fetch(url, {
-//         method: 'GET',
-//         headers: {
-//           'Content-Type': 'application/json', 
-//         }
-//       })
-//         .then(response => response.json()) // Traitement de la réponse comme JSON
-//         .then(data => {
-//           console.log(data.clef);
-//           const test = document.createElement('p')
 
-//           test.innerText = data.clef
-//           document.getElementById('jess').appendChild(test)
-//         })
-//         .catch(error => {
-//           // Gestion des erreurs
-//           console.error(error);
-//         });
-// }
 
 
 module.exports = app
