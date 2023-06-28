@@ -1,4 +1,5 @@
 import React from 'react';
+import Signup from '../Signup/signup';
 import Bouton from '../../composants/bouton/Bouton';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./imageLogin.jpg";
@@ -12,20 +13,20 @@ function Login() {
     <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5]">
         <div className= 'relative w-1/2 h-full flex flex-col' >
           <div className= 'absolute top-[20%] left-[10%] right-[10%] flex flex-col '>
-            <h1 className="text-4xl text-white font-bold my-4 ">Transformez votre intérieur avec nos meubles vintage uniques,</h1>
-            <p className="text-xl text-white font-normal">Commencez gratuitement et bénéficiez des offres attractives de la communauté. </p>
+            <h1 className="text-4xl text-white font-bold my-4 drop-shadow-lg">Transformez votre intérieur avec nos meubles vintage uniques,</h1>
+            <p className="text-xl text-white font-normal drop-shadow-lg">Commencez gratuitement et bénéficiez des offres attractives de la communauté. </p>
           </div>
           <img src={COVER_IMAGE} className="w-full h-full object-cover "/>
         </div>
         
         <div className="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 space-y-20">
-          <h1 className="text-x1 text-left text-[#060606] font-semibold ">Vintage</h1>
+          <h1 className="text-x1 text-left text-[#060606] font-semibold ">Vintage Logo</h1>
 
-          <div className='w-full flex flex-col max-w-[550px] border border-black'>
+          <div className='w-full flex flex-col max-w-[550px]'>
 
             <div className='flex flex-col mb-10 '>
               <h3 className="text-3xl text-left font-semibold mb-2">Login</h3>
-              <p className="text-base text-left mb-2 ">Veuillez entrer vos informations.</p>
+              <p className="text-base text-left mb- ">Veuillez entrer vos informations.</p>
             </div>
 
             <div className= 'w-full flex flex-col'>
@@ -45,15 +46,18 @@ function Login() {
                 <input
                  type='checkbox'
                  className='w-4 h-4 mr-2 '/>
-                 <p className='text-sm bg-blue-500'>Remember Me</p>
+                 <p className='text-sm'>Remember Me</p>
               </div>
-              <p className='text-sm  bg-blue-500 font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot Password?</p>
+              <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot Password?</p>
             </div>
 
-            <div className='w-full flex flex-col my-4'>
-              <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
+            <div className='w-full flex flex-col my-8'>
+              {/* <div className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'> */}
+                <Link to="/accueil"><Bouton texteBouton='Log in'/></Link>
+              {/* </div>   */}
+              {/* <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
                 Log In
-              </button>
+              </button> */}
 
               <button className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'>
                 Sign Up
@@ -63,7 +67,7 @@ function Login() {
           </div>
 
           <div className ="w-full items-center space-y-20">
-            <p className="text-sm font-normal text-[#060606]">Vous n&#39;avez pas encore de compte? <Link to="/accueil"><span className='font-semibold underline underline-offset-2 curson-pointer'> Sign up</span></Link></p>
+            <p className="text-sm font-normal text-[#060606]">Vous n&#39;avez pas encore de compte? <Link to="../Signup/signup"><span className='font-semibold underline underline-offset-2 curson-pointer'> Sign up</span></Link></p>
           </div>
 
 
