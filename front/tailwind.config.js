@@ -10,7 +10,8 @@ export default {
         'soleil': "url('/assets/logo-sun.png')",
       },
       colors: {
-        beige: "#F7F0ED",
+        'beige': "#F7F0ED",
+        'dark-brown' : "#421F00",
       },
     },
   },
