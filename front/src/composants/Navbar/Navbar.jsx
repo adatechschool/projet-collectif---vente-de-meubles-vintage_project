@@ -19,13 +19,13 @@ function Navbar() {
     <div className='bg-beige h-32' style={backgroundStyle}>
       <ul className='flex h-full '>
         <div className='h-full flex justify-start items-center w-3/4'>
-          <li className='ml-[150px] text-3xl text-black-600 font-bold'>Vintage</li>
+          <li className='ml-[150px] text-3xl text-dark-brown text-black-600 font-bold'>Vintage</li>
         </div>
         <div className='flex justify-end items-center w-1/4'>
           <li className='flex-3 mr-2.5'><Link to="/panier" className='text-dark-brown'>
             <LocalMallIcon sx={{fontSize:70}}/></Link>
             </li>
-          <li className='flex-3 mt-3'><MenuIcon sx={{fontSize:70}}/></li>
+          <li className='flex-3 mt-3 text-dark-brown'><MenuIcon sx={{fontSize:70}}/></li>
           {/* A revoir, composant menu  <li><Menu/></li> */}
         </div>
       </ul>
