@@ -1,5 +1,5 @@
 import React from 'react'
-import Bouton from '../bouton/Bouton'
+import Bouton from '../Bouton/Bouton'
 import noImage from '../../assets/img_vignette/img_non_dispo.jpg'
 
 function Vignette({id, nom, prix}) {
