@@ -1,9 +1,19 @@
 import React from 'react'
+import Vignette from '../Vignette/Vignette'
+import {produits} from '../../data/produits'
 
 function Main() {
   return (
-    <div className='h-96'>
-        <p>Ici il y aura des vignettes</p>
+    <div className='flex flex-wrap'>
+      {
+        produits.map(({ id, nom, prix }) => (
+          <Vignette
+            key={id}
+            nom={nom}
+            prix={prix} 
+          />
+        ))
+      }
     </div>
   )
 }
