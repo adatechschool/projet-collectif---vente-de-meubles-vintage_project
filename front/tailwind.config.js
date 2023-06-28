@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-
+      backgroundImage: {
+        'soleil': "url('/assets/logo-sun.png')",
+      },
       colors: {
         'beige': "#F7F0ED",
         'dark-brown' : "#421F00",
