@@ -1,4 +1,3 @@
-
 function test(){
     const url = "http://localhost:8080/test"
     fetch(url, {
