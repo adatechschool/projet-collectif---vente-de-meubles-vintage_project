@@ -28,7 +28,7 @@ function Navbar() {
             <LocalMallIcon sx={{fontSize:70}}/></Link>
             </li>
           <li className='flex-3 mt-3'><MenuIcon sx={{fontSize:70}}/></li>
-          {/* <li><Menu/></li> */}
+          {/* A revoir, composant menu  <li><Menu/></li> */}
         </div>
       </ul>
     </div>
