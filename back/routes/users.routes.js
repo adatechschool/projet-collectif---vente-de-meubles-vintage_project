@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const controllersthomas = require('../controllers/users.controllers')
+const controllers = require('../controllers/users.controllers')
 
-// router.get('/',controllersthomas.declarefirstmessage)
-// router.post('/test/',controllersthomas.createObject)
-router.post('/',controllersthomas.createObject) //jai changé la route pour que ce soit / et non /test
+// router.get('/',controllers.declarefirstmessage)
+// router.post('/test/',controllers.createObject)
+router.post('/',controllers.createObject) //jai changé la route pour que ce soit / et non /test
 // Dans l'idée ou nous arrivons directement sur la page login coté front 
+router.post('/login',controllers.checkUserExists)
+
+
 module.exports = router 
