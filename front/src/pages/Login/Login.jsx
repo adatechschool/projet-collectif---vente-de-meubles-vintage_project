@@ -10,16 +10,16 @@ const color = {
 
 function Login() {
   return (
-    <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5]">
+    <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5] ">
         <div className= 'relative w-1/2 h-full flex flex-col' >
           <div className= 'absolute top-[20%] left-[10%] right-[10%] flex flex-col '>
             <h1 className="text-4xl text-white font-bold my-4 drop-shadow-lg">Transformez votre intérieur avec nos meubles vintage uniques,</h1>
             <p className="text-xl text-white font-normal drop-shadow-lg">Commencez gratuitement et bénéficiez des offres attractives de la communauté. </p>
           </div>
-          <img src={COVER_IMAGE} className="w-full h-full object-cover "/>
+          <img src={COVER_IMAGE} className="w-full h-full object-cover"/>
         </div>
         
-        <div className="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 space-y-20 ">
+        <div className="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 space-y-20 items-center justify-center">
           <h1 className="text-x1 text-left text-[#060606] font-semibold ">Vintage Logo</h1>
 
           <div className='w-full flex flex-col max-w-[550px]'>
