@@ -13,7 +13,10 @@
   a {
     @apply text-blue-600 underline;
   }
-}
+    html {
+      font-family: PT Mono, monospace;
+    }
+  }
 
 @tailwind components;
 
