@@ -12,7 +12,7 @@ const createObject = ((req,res,next)=>{
      ]
 
     
-     const query = "INSERT INTO test (nom, prenom, email) VALUES (?,?,?)"
+     const query = "INSERT INTO test_users (nom, prenom, email) VALUES (?,?,?)"
      connect.query(query, values, (error, results) => {
       if (error) {
         console.error("Erreur lors de l'insertion de l'utilisateur", error);

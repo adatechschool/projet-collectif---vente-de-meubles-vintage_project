@@ -3,6 +3,39 @@ import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login';
 
+function test(){
+  const data = {
+    // name : nom,
+    // firstname : prenom,
+    // email : email
+    name : "Lambert",
+    firstname : "Justine",
+    email : "adresse@bidon.fr"
+  }
+    const url = "http://localhost:3000/" // j'ai changé le /test en /
+    fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json()) // Traitement de la réponse comme JSON
+        .then(data => {
+          alert(data.message)
+         
+          const redirectionUrl = "/inscription?nom=" + encodeURIComponent(nom) + "&prenom=" + encodeURIComponent(prenom) + "&email=" + encodeURIComponent(email);
+          window.location.href = redirectionUrl;
+
+          // window.location.href = "/inscription"; //Nous redirigons vers des route exemple : "/inscription et non vers des fichier html"
+        })
+        .catch(error => {
+          // Gestion des erreurs
+          console.log("ERREUR");
+          console.error(error);
+        });
+}
+
 function Signup() {
   return (
   <div className='w-full flex flex-col max-w-[px] space-y-20 place-items-center '>
