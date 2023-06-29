@@ -1,11 +1,15 @@
 import React from 'react'
 import Navbar from '../../composants/Navbar/Navbar';
+// import Carousel from '../../composants/Carousel/Slider';
+import Slider from '../../composants/Carousel/Slider';
 
 function Produit() {
   return (
     <div>
       <Navbar/>
-      ceci est la page d'un produit détaillé
+      {/* <Carousel/> */}
+      <Slider/>
+      <p className=''>Retour à la recherche</p>
     </div>
   )
 }
