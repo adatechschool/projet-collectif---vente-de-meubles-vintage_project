@@ -4,7 +4,7 @@ import {produits} from '../../data/produits'
 
 function Main() {
   return (
-    <div className='flex flex-wrap'>
+    <div id="main" className='flex flex-wrap min-h-screen'>
       {
         produits.map(({ id, nom, prix }) => (
           <Vignette
