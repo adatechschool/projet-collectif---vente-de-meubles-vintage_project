@@ -5,9 +5,7 @@ import Login from '../Login/Login';
 
 function Signup() {
   return (
-
-  <div className='w-full flex flex-col max-w-[550px] space-y-20'>
-
+  <div className='w-full flex flex-col max-w-[px] space-y-20 place-items-center '>
     <div>
       <h1>Welcome to Vintage</h1>
     </div>
@@ -34,7 +32,7 @@ function Signup() {
         <div className='w-full flex flex-col my-8'>
           
         <div className='w-full text-[ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
-            <Link to="/signin" className="text-white"><Bouton texteBouton='Create Account' /></Link>
+            <Link to="" className="text-white"><Bouton texteBouton='Create Account' /></Link>
           </div> 
         </div>
 
@@ -44,12 +42,8 @@ function Signup() {
         </div>
 
       </div>
-    </div>
-      
-
-
-
-    )
-  }
+  </div>
+  )
+}
 
   export default Signup;
