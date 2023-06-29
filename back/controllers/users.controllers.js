@@ -1,21 +1,7 @@
 const mysql = require('mysql');
-console.log('connection');
 const connect  = require('../sql/connexion');
 
-const declarefirstmessage = ((req,res)=>{
-  console.log('controllers')
-    console.log('test 1er get')
-    res.status(201).json({message: '1er get'})
-
-  })
-
 const createObject = ((req,res,next)=>{
-    //  console.log(req.body);
-    //  console.log(req.body.name);
-    //  const {name, firstname, email} = req.body
-    //  console.log(name)
-
-    // récupération destructurée des données du formulaire
      const nom = req.body.name
      const prenom = req.body.firstname
      const email = req.body.email
@@ -26,17 +12,19 @@ const createObject = ((req,res,next)=>{
      ]
 
     
-     const query = "INSERT INTO Test_users (nom, prenom, email) VALUES (?,?,?)"
-     connect.query(query, values)
-      // if (error) throw error;
-      // else (console.log("Nouvelle phrase insérée avec succès !"))
-    // Fermer la connexion à la base de données après l'exécution de la requête
-     connect.end();
-
-  // res.status(200).json({message: "objet créé"})
-
-
-  next()
+     const query = "INSERT INTO test (nom, prenom, email) VALUES (?,?,?)"
+     connect.query(query, values, (error, results) => {
+      if (error) {
+        console.error("Erreur lors de l'insertion de l'utilisateur", error);
+      } else {
+        console.log("Utilisateur inséré avec succès");
+        res.status(200).send({message: "Utilisateur inséré avec succès"});
+        // Effectuer d'autres actions si nécessaire
+      }
+  
+      // Fermer la connexion à la base de données
+      connect.end();
+    });
 })
 
-module.exports = {declarefirstmessage, createObject}
+module.exports = {createObject}

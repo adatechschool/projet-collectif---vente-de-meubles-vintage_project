@@ -10,57 +10,18 @@ app.use((req, res, next) => {
 });
 
 app.use("/", express.static("./client/"))
+app.use("/inscription", express.static("./client/inscription.html")); 
+// Comment expliquer :( Alors au moment de la Réussite de ma requete coté serveur j'envoie dans .then coté client
+// une alert qui me dit que j'ai bien entré un utilisateur dans ma base de donné par la suite je redirige
+// vers un /inscription coté client Exemple : window.location.href = "/inscription";
+// Ce slash coté client se charger avec la ligne 13 du coup quand j'arrive sur / inscription 
+// Je vais charger mon fichier HTML qui est dans "./client/inscription.html"
+// Est ce que j'ai étais clair ou c'est la merde ?
 
 app.use(express.json())
 
 app.use('/',router)
-app.post('/test',(req,res,next)=>{
-  console.log('test 1er get')
- 
 
-  next()
-})
-// app.get('/',(req,res,next)=>{
-//   console.log('test 1er get')
-//   res.status(201).json({message: '1er get'})
-
-//   next()
-// })
-
-
-
-
-
-app.get('/test/stuff',(req,res,next)=>{
-  console.log('reponse')
-  res.status(201)
-  next()
-})
-
-
-// app.get('/test/stuff', (req, res, next) => {
-//   console.log('test log')
-//   const stuff = [
-//     {
-//       _id: '1234',
-//       description: 'une belle table',
-//       meuble: 'tabe',
-//       price: 4900,
-//       userId: 'Jess',
-//     },
-//     {
-//       _id: '5678',
-//       description: 'une jolie chaise',
-//       meuble: 'chaise',
-//       price: 4900,
-//       userId: 'Lucie',
-//     }
-//   ];
-//   res.json(stuff);
-
-
-
-// });
 
 
 
