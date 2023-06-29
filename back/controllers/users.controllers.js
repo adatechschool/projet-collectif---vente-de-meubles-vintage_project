@@ -30,19 +30,21 @@ const createObject = ((req,res,next)=>{
 const checkUserExists =((req,res, next) =>{
   const email = req.body.email
   console.log(email)
-  const exists = "EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "')"
-  const query = "SELECT " + exists;
-  connect.query(query, (error, result)=> {
+  // const exists = "EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "')"
+  // const query = "SELECT " + exists;
+
+  const query2 = "SELECT EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "') as emailCheck "
+  connect.query(query2, (error, result)=> {
     console.log("result",result)
     // console.log("connectquery ?", result[0][exists])
     if (error) {
       console.error("Erreur ", error);
     }
-    else if(result[0][exists]===1){
+    else if(result[0]['emailCheck']===1){
       console.log("utilisateur trouvé : ", result)
       res.status(200).send({message: "Utilisateur ok LOGIN"})
     }
-    else if(result[0][exists]===0){
+    else if(result[0]['emailCheck']===0){
       console.log("user not found")
       res.status(200).send({message: "NON LOGIN"})
     }
