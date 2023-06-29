@@ -8,6 +8,7 @@ function Vignette({ id, nom, prix }) {
     <div key={id} className='Global h-80 w-72 p-2 m-2 bg-orange-500'>
       <div className='image h-4/6'>
         <Link to="/produit">
+          {/* Faire requête pour le lien /produit/id=?  */}
           <img src={noImage} className='h-full w-full object-cover' alt='No Image' />
         </Link>
       </div>
