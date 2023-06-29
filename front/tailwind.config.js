@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'aurore': ['"La Belle Aurore"', 'cursive'],
+      },
       backgroundImage: {
         'soleil': "url('/assets/logo-sun.png')",
       },
