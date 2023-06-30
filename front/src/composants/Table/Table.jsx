@@ -6,7 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 function Table({data}) {
   return (
     <div>
-        <table className='border-4 table-auto min-h-screen mx-auto my-20'>
+        <table className='border-4 table-auto mx-auto my-20'>
             <thead className="text-red-600">
                 <tr>
                     <th className='border-2 text-2xl'>Nom</th>
