@@ -6,7 +6,6 @@ import Panier from "./pages/Panier/Panier";
 import Produit from "./pages/Produit/Produit";
 import Signup from "./pages/Signup/signup";
 import './App.css'
-import Signup from "./pages/Signup/signup";
 
 function App() {
 
