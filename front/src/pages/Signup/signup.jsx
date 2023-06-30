@@ -12,7 +12,7 @@ function test(){
     firstname : "Justine",
     email : "adresse@bidon.fr"
   }
-    const url = "http://localhost:3000/" // j'ai changé le /test en /
+    const url = "http://localhost:3000/signup"
     fetch(url, {
         method: 'POST',
         headers: {
