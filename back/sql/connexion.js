@@ -1,11 +1,18 @@
+// import dotenv from "dotenv";
+require('dotenv').config();
+
 const mysql = require('mysql');
 // const { connect } = require('../serveur');
+const port_BDD = process.env.PORT_BDD;
+
+
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
-    database: 'vente_meubles'
+    password: 'root',
+    database: 'vente_meubles',
+    port : port_BDD
   });
   connection.connect((err) => {
     if (err) {
