@@ -1,7 +1,7 @@
 const express=require('express')
 const app = express()
 const router = require('./routes/users.routes.js')
-// const accueil = require('./routes/accueil.routes.js')
+const accueil = require('./routes/accueil.routes.js')
 
 
 app.use((req, res, next) => {
@@ -18,7 +18,7 @@ app.use("/inscription", express.static("./client/inscription.html"));
 app.use(express.json())
 
 app.use('/',router)
-// app.use('/',accueil)
+app.use('/',accueil)
 
 
 
