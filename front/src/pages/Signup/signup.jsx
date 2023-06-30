@@ -1,9 +1,8 @@
 import React from 'react'
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
-import Login from '../Login/Login';
 
-function test(){
+function addUser(){
   const data = {
     // name : nom,
     // firstname : prenom,
@@ -12,7 +11,7 @@ function test(){
     firstname : "Justine",
     email : "adresse@bidon.fr"
   }
-    const url = "http://localhost:3000/signup"
+    const url = "http://localhost:7000/signup"
     fetch(url, {
         method: 'POST',
         headers: {
@@ -50,6 +49,11 @@ function Signup() {
           type="your name"
           placeholder='Your name'
           className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
+        
+        <input
+          type="your name"
+          placeholder='Your name'
+          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
 
           <input
           type="email"
@@ -65,7 +69,7 @@ function Signup() {
         <div className='w-full flex flex-col my-8'>
           
         <div className='w-full text-[ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
-            <Link to="" className="text-white"><Bouton texteBouton='Create Account' /></Link>
+            <Link to="" className="text-white"><Bouton onClick={addUser} texteBouton='Create Account' /></Link>
           </div> 
         </div>
 
