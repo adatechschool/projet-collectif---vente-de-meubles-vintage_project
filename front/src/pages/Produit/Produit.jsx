@@ -3,6 +3,7 @@ import Navbar from '../../composants/Navbar/Navbar';
 import Slider from '../../composants/Slider/Slider';
 import { produits } from '../../data/produits';
 import Detail from '../../composants/Detail/Detail';
+import { Link } from 'react-router-dom';
 
 function Produit() {
   // Select the product based on the desired ID
@@ -11,16 +12,20 @@ function Produit() {
   return (
     <div>
       <Navbar />
-      <p className=''>Retour à la recherche</p>
-      <div className='flex flex-col justify-center items-center'>
-      <div className='flex flex-wrap bg-purple-200 flex w-full h-[600px]'>
+      <div className='h-16 flex justify-start items-center'>
+        <Link to="/accueil" className='text-dark-brown'>
+        <p className='ml-[10%] w-full'>Retour à la recherche</p>
+        </Link>
+      </div>
+      
+      <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
         {/* Zone Carousel Photos */}
-        <div className='flex justify-center h-auto'>
+        <div className='flex justify-center items-center h-auto'>
           <Slider />
         </div>
 
         {/* Zone Texte Détails Meubles */}
-        <div className='bg-blue-300 w-full flex justify-center items-center'>
+        <div className='flex justify-center items-center'>
           {/* requête : from table meuble where id = id de la viguette sélectionné  */}
           <Detail
             id={selectedProduit.id}
@@ -34,7 +39,6 @@ function Produit() {
             categorie={selectedProduit.categorie}
           />
         </div>
-      </div>
       </div>
     </div>
   );

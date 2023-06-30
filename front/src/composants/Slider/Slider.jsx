@@ -10,7 +10,7 @@ const Slider = () => {
   }));
 
   return (
-    <Carousel images={carouselImages} style={{ height: 500, width: '50%' }} />
+    <Carousel images={carouselImages} style={{ height: 500, width: '80%' }} />
   );
 };
 
