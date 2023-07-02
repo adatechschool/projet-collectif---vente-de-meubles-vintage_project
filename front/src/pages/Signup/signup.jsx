@@ -26,11 +26,8 @@ function Signup() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        setName("");
-        setFirstName("");
-        setEmail("");
-        setPassword("");
-        alert(resJson.message)
+        alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
+        window.location.href = "/" // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
       } else {
         alert("Utilisateur non créé")
       }
