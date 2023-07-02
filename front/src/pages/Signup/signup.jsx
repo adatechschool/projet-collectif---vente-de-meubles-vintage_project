@@ -1,41 +1,44 @@
-import React from 'react'
-import Bouton from '../../composants/Bouton/Bouton';
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-function addUser(){
-  const data = {
-    // name : nom,
-    // firstname : prenom,
-    // email : email
-    name : "Lambert",
-    firstname : "Justine",
-    email : "adresse@bidon.fr"
-  }
-    const url = "http://localhost:7000/signup"
-    fetch(url, {
-        method: 'POST',
+function Signup() {
+  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  let addUser = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:7000/signup"
+      let res = await fetch(url, {
+        method: "POST",
+        // Le "headers" est absolument nécessaire sinon la requête n'aboutit pas 
         headers: {
           'Content-Type': 'application/json', 
         },
-        body: JSON.stringify(data)
-      })
-        .then(response => response.json()) // Traitement de la réponse comme JSON
-        .then(data => {
-          alert(data.message)
-         
-          const redirectionUrl = "/inscription?nom=" + encodeURIComponent(nom) + "&prenom=" + encodeURIComponent(prenom) + "&email=" + encodeURIComponent(email);
-          window.location.href = redirectionUrl;
+        body: JSON.stringify({
+          name: name,
+          firstname: firstname,
+          email: email,
+          password: password, // NON UTILISE PAR LE BACK POUR LE MOMENT
+        }),
+      });
+      let resJson = await res.json();
+      if (res.status === 200) {
+        setName("");
+        setFirstName("");
+        setEmail("");
+        setPassword("");
+        alert(resJson.message)
+      } else {
+        alert("Utilisateur non créé")
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-          // window.location.href = "/inscription"; //Nous redirigons vers des route exemple : "/inscription et non vers des fichier html"
-        })
-        .catch(error => {
-          // Gestion des erreurs
-          console.log("ERREUR");
-          console.error(error);
-        });
-}
-
-function Signup() {
   return (
   <div className='w-full flex flex-col max-w-[px] space-y-20 place-items-center '>
     <div>
@@ -45,34 +48,45 @@ function Signup() {
       <div>
 
         <div className= 'w-full flex flex-col'>
-        <input
-          type="your name"
-          placeholder='Your name'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
-        
-        <input
-          type="your name"
-          placeholder='Your name'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
+          <form onSubmit={addUser}>
+            <input
+              type="text"
+              value={name}
+              placeholder='Your name'
+              className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' 
+              onChange={(e) => setName(e.target.value)}
+              />
+            
+            <input
+              type="text"
+              value={firstname}
+              placeholder='Your first name'
+              className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' 
+              onChange={(e) => setFirstName(e.target.value)}
+              />
 
-          <input
-          type="email"
-          placeholder='Email'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
+            <input
+              type="email"
+              value={email}
+              placeholder='Email'
+              className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' 
+              onChange={(e) => setEmail(e.target.value)}
+              />
 
-          <input
-          type="password"
-          placeholder='Password'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
-        </div>
+            <input
+              type="password"
+              value={password}
+              placeholder='Password'
+              className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' 
+              onChange={(e) => setPassword(e.target.value)}
+              />
 
-        <div className='w-full flex flex-col my-8'>
+            <button type="submit" className='w-full text-[ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center text-white'>
+              Create account
+            </button>
           
-        <div className='w-full text-[ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
-            <Link to="" className="text-white"><Bouton onClick={addUser} texteBouton='Create Account' /></Link>
-          </div> 
+          </form>
         </div>
-
         
         <div className ="w-full items-center space-y-20">
           <p className="text-sm text-center font-normal  text-[#060606]">Already have an account? <Link to=".."><span className='font-semibold underline underline-offset-2 curson-pointer'> Log in</span></Link></p>
