@@ -14,7 +14,7 @@ function Main() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/meubles");
+      const response = await fetch("http://localhost:3000/meubles");
 
       const jsonData = await response.json();
 

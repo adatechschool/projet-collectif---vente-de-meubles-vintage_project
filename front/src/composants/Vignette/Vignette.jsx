@@ -10,7 +10,8 @@ function Vignette({id, nom, prix, photo}) {
   let navigate = useNavigate()
 
   return (
-    <div key={id} className='Global h-80 w-72 p-2 m-2 bg-orange-500'>
+    <div>
+      <div key={id} className='Global h-80 w-72 p-2 m-2 bg-orange-500'>
         <div className='image h-4/6'>
             <img src={photo} className='h-full w-full object-cover'/>
         </div>
@@ -22,7 +23,7 @@ function Vignette({id, nom, prix, photo}) {
             <div className='acheter bg-red-200 w-1/3 p-2'>
           {/* ici Navigate va agir comme router.push our aller à l'URL spécifique*/}
             <button onClick ={() => {navigate(`/produit/${id}`)}}>Réserver</button>
-//                     Remettre le bouton et réaliser le onclick sur l'image <Bouton texteBouton="Acheter" />
+{/* //     Remettre le bouton et réaliser le onclick sur l'image <Bouton texteBouton="Acheter" /> */}
 
             </div>
 
