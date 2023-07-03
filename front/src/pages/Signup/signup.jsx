@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+const port=import.meta.env.VITE_PORT;
 
 function Signup() {
   const [name, setName] = useState("");
@@ -10,7 +11,7 @@ function Signup() {
   let addUser = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:7000/signup"
+      const url = `http://localhost:${port}/signup`
       let res = await fetch(url, {
         method: "POST",
         // Le "headers" est absolument nécessaire sinon la requête n'aboutit pas 
