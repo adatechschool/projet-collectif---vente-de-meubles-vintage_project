@@ -47,3 +47,5 @@ server.on('listening', () => {
 });
 
 server.listen(port);
+
+// export const port_Serveur = port
