@@ -7,7 +7,7 @@ const createObjectDetailProduct = ((req,res,next)=>{
     console.log(id);
     const query = "SELECT * FROM testmeubles WHERE id = ?"
 
-    connect.query(query,{id} ,(error, results) => {
+    connect.query(query,[id] ,(error, results) => {
       if (error) {
         console.error("Erreur lors de l'insertion de l'utilisateur", error);
       } else {

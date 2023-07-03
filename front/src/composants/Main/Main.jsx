@@ -18,7 +18,6 @@ function Main() {
       // const photoResponse = await fetch("https://api.cloudinary.com/v1_1/dnzdkulto")
       // const jsonPhotoData = await photoResponse.json();
 
-     
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);
