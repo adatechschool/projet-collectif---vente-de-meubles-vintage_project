@@ -78,12 +78,12 @@ const checkLogin = ((req, res, next) => {
   // let email = req.body.email;
 	// let password = req.body.password;
 
-	let email = "Djihane";
-	let password = "Justine";
+	let email = "j@gmail.com";
+	let password = "test";
 
 	if (email && password) {
 		// Execute SQL query that'll select the account from the database based on the specified email and password
-		connection.query('SELECT * FROM test_users WHERE email = ? AND mdp = ?', [email, password], function(error, results, fields) {
+		connect.query('SELECT * FROM test_users WHERE email = ? AND mdp = ?', [email, password], function(error, results, fields) {
 			// If there is an issue with the query, output the error
 			if (error) throw error;
 			// If the account exists
