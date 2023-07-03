@@ -23,7 +23,7 @@ const createObject = ((req,res,next)=>{
       }
   
       // Fermer la connexion à la base de données
-      connect.end();
+      // connect.end();
     });
 })
 
@@ -48,7 +48,7 @@ const checkUserExists =((req,res, next) =>{
       console.log("user not found")
       res.status(200).send({message: "NON LOGIN"})
     }
-    connect.end();
+    // connect.end();
   })
 })
 
@@ -69,7 +69,7 @@ const checkedUser = (req, res, next) => {
       next()
     });
   }
-  connect.end()
+  // connect.end()
 };
 
 module.exports = {createObject, checkUserExists, checkedUser}
