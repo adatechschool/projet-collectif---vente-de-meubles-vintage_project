@@ -27,4 +27,49 @@ const createObject = ((req,res,next)=>{
     });
 })
 
-module.exports = {createObject}
+const checkUserExists =((req,res, next) =>{
+  const email = req.body.email
+  console.log(email)
+  // const exists = "EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "')"
+  // const query = "SELECT " + exists;
+
+  const query2 = "SELECT EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "') as emailCheck "
+  connect.query(query2, (error, result)=> {
+    console.log("result",result)
+    // console.log("connectquery ?", result[0][exists])
+    if (error) {
+      console.error("Erreur ", error);
+    }
+    else if(result[0]['emailCheck']===1){
+      console.log("utilisateur trouvé : ", result)
+      res.status(200).send({message: "Utilisateur ok LOGIN"})
+    }
+    else if(result[0]['emailCheck']===0){
+      console.log("user not found")
+      res.status(200).send({message: "NON LOGIN"})
+    }
+    connect.end();
+  })
+})
+
+
+
+const checkedUser = (req, res, next) => {
+  let email = req.body.email;
+  if (email) {
+    connect.query('SELECT * FROM test_users WHERE email = ?', [email], function(error, results) {
+      // If there is an issue with the query, output the error
+      if (error) throw error;
+      // If the account exists
+      if (results.length > 0) {
+        req.session.loggedin = true;
+        req.session.email = email;
+        res.redirect('/accueil');
+      }
+      next()
+    });
+  }
+  connect.end()
+};
+
+module.exports = {createObject, checkUserExists, checkedUser}
