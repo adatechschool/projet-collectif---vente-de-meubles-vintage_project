@@ -1,6 +1,7 @@
 const connect  = require('../sql/connexion');
+
 const createObjectmeubles = ((req,res,next)=>{
-    connect.query('SELECT id,titre,prix,photo,description FROM testmeubles', (error, results) => {
+    connect.query('SELECT id,titre,prix,photo,description,photo FROM testmeubles', (error, results) => {
       if (error) {
         console.error("Erreur lors de l'insertion de l'utilisateur", error);
       } else {

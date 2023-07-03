@@ -16,12 +16,13 @@ function App() {
       <Route path="/" element={<Login/>}/> 
       <Route path="/accueil" element={<Accueil/>}/>
       <Route path="/admin" element={<Admin/>}/>
-      <Route path="/produit" element={<Produit/>}/>
+      <Route path="/produit/:id" element={<Produit/>}/>
       <Route path="/panier" element={<Panier/>}/>
       <Route path="/signup" element={<Signup/>}/>
     </Routes>
     </BrowserRouter>
   )
 }
+
 
 export default App

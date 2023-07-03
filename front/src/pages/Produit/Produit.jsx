@@ -1,13 +1,36 @@
+
 // import React from 'react';
 import Navbar from '../../composants/Navbar/Navbar';
 import Slider from '../../composants/Slider/Slider';
 import { produits } from '../../data/produits';
 import Detail from '../../composants/Detail/Detail';
 import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom';
 
 function Produit() {
-  // Select the product based on the desired ID
-  const selectedProduit = produits.find((produit) => produit.id === 3);
+
+  let { id } = useParams()
+  
+  const [produitDetail, setproduitDetail] = useState({});
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+    
+  const fetchData = async () => {
+
+    try {
+      const response = await fetch(`http://localhost:4000/meubles/byId/${id}`);
+      const jsonData = await response.json();
+
+      console.log(jsonData);
+      setproduitDetail(jsonData);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
   return (
     <div>
