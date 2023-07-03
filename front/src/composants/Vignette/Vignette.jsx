@@ -1,3 +1,4 @@
+
 import React from 'react'
 // import Bouton from '../Bouton/Bouton'
 // import noImage from '../../assets/img_vignette/img_non_dispo.jpg'
@@ -21,11 +22,14 @@ function Vignette({id, nom, prix, photo}) {
             <div className='acheter bg-red-200 w-1/3 p-2'>
           {/* ici Navigate va agir comme router.push our aller à l'URL spécifique*/}
             <button onClick ={() => {navigate(`/produit/${id}`)}}>Réserver</button>
-           
+//                     Remettre le bouton et réaliser le onclick sur l'image <Bouton texteBouton="Acheter" />
+
             </div>
+
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Vignette
+export default Vignette;

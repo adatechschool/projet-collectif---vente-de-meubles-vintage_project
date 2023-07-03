@@ -3,18 +3,13 @@ import Signup from '../Signup/signup';
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./imageLogin.jpg";
+import { handleClick2 } from '../../function/handleClick';
 
 const color = {
   background: "#f5f5f5"
 }
 
 function Login() {
-
-  const handleClick = () => {
-    console.log('Le bouton a été cliqué !');
-    // Effectuez les actions souhaitées ici
-  };
-
   return (
     <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5]">
         <div className= 'relative w-1/2 h-full flex flex-col' >
@@ -60,7 +55,7 @@ function Login() {
             <div className='w-full flex flex-col my-8'>
               <div className='w-full text-[#ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
                 <Link to="/accueil"><Bouton texteBouton='Test'/></Link>
-                <Bouton onClick={handleClick} texteBouton='Log in'/> 
+                <Bouton onClick={handleClick2} texteBouton='Log in'/> 
               </div>  
 
               <div className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'>
