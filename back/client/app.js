@@ -10,7 +10,7 @@ function test(){
     email : email
   }
 
-    const url = "http://localhost:3000/login" // j'ai changé le /test en /
+    const url = `http://localhost:${process.env.PORT }/login` // j'ai changé le /test en /
 
     fetch(url, {
         method: 'POST',
