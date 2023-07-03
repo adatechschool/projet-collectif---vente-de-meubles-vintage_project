@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Navbar from '../../composants/Navbar/Navbar';
 import Slider from '../../composants/Slider/Slider';
 import { produits } from '../../data/produits';
