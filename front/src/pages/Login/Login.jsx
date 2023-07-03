@@ -13,8 +13,8 @@ function Login() {
     <div className="min-h-screen flex flex-col lg:flex-row items-start bg-[#f5f5f5]">
       <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full lg:w-2/3">
-  <h1 className="text-4xl lg:text-5xl text-white font-bold my-4 lg:my-8">Transformez votre intérieur avec nos meubles vintage uniques,</h1>
-  <p className="text-xl lg:text-2xl text-white font-normal">Commencez gratuitement et bénéficiez des offres attractives de la communauté.</p>
+  <h1 className="drop-shadow-lg text-4xl lg:text-5xl text-white font-bold my-4 lg:my-8">Transformez votre intérieur avec nos meubles vintage uniques,</h1>
+  <p className="drop-shadow-lg text-xl lg:text-2xl text-white font-normal">Commencez gratuitement et bénéficiez des offres attractives de la communauté.</p>
 </div>
 
         <img src={COVER_IMAGE} className="w-full h-full object-cover" alt="Cover Image" />
