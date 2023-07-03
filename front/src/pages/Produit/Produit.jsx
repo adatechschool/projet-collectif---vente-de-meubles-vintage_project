@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import Vignette from '../../composants/Vignette/Vignette';
 
 function Produit() {
 
   let { id } = useParams()
   
-  const [produitDetail, setproduitDetail] = useState({});
+  const [produitDetail, setproduitDetail] = useState(null);
 
 
   useEffect(() => {
@@ -15,10 +16,9 @@ function Produit() {
   const fetchData = async () => {
 
     try {
-      const response = await fetch(`http://localhost:4000/meubles/byId/${id}`);
+      const response = await fetch(`http://localhost:5000/meubles/:${id}`);
       const jsonData = await response.json();
 
-      console.log(jsonData);
       setproduitDetail(jsonData);
     } catch (error) {
       console.log("Error:", error);
@@ -27,7 +27,13 @@ function Produit() {
  
 
   return (
-    <div >{produitDetail.titre}</div>
+      produitDetail.map((item) => (
+      <Vignette key={item.id} nom={item.titre} 
+      // <button onClick ={() => {navigate(`/produit/${item.id}`)}}/>
+      />
+     
+    ))
+  
   )
 }
 

@@ -1,10 +1,11 @@
 const connect  = require('../sql/connexion');
-
+console.log('ok');
 const createObjectDetailProduct = ((req,res,next)=>{
   //  Selectionner le meuble avec le même ID de la selection du meuble
 
     const id = req.params.id
-    const query = "SELECT titre FROM testmeubles WHERE testmeubles_id = ?"
+    console.log(id);
+    const query = "SELECT * FROM testmeubles WHERE id = ?"
 
     connect.query(query,{id} ,(error, results) => {
       if (error) {

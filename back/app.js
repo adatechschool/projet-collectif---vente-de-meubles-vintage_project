@@ -2,6 +2,7 @@ const express=require('express')
 const app = express()
 const router = require('./routes/users.routes.js')
 const accueil = require('./routes/accueil.routes.js')
+const produit = require('./routes/produit.routes.js')
 
 
 app.use((req, res, next) => {
@@ -19,6 +20,7 @@ app.use(express.json())
 
 app.use('/',router)
 app.use('/',accueil)
+app.use('/',produit)
 
 
 

@@ -12,13 +12,13 @@ function Main() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/meubles");
+      const response = await fetch("http://localhost:5000/meubles");
       const jsonData = await response.json();
 
       // const photoResponse = await fetch("https://api.cloudinary.com/v1_1/dnzdkulto")
       // const jsonPhotoData = await photoResponse.json();
 
-      console.log(jsonData);
+     
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);
