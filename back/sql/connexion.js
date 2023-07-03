@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-require("dotenv").config({path: "./.env"})
+require("dotenv").config({path: "../.env"})
 // const { connect } = require('../serveur');
 
 const connection = mysql.createConnection({
@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: process.env.PASSWORD,
     database: 'vente_meubles',
-    port: 8889
+    port: process.env.PORT_BDD
   });
   connection.connect((err) => {
     if (err) {
