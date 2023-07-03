@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-const port=import.meta.env.VITE_PORT;
+const port = import.meta.env.VITE_PORT;
 
 function Signup() {
   const [name, setName] = useState("");
