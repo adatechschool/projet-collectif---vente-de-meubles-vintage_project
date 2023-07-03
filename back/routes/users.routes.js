@@ -7,4 +7,7 @@ router.post('/signup',controllers.createObject)
 // Dans l'idée ou nous arrivons directement sur la page login coté front 
 router.post('/login',controllers.checkUserExists)
 
+// Route pour supprimer un
+router.post('/admin',controllers.admin)
+
 module.exports = router 
