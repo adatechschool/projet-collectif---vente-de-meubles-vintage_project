@@ -7,6 +7,7 @@ import Detail from '../../composants/Detail/Detail';
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+const port=import.meta.env.VITE_PORT
 
 function Produit() {
 
@@ -22,7 +23,7 @@ function Produit() {
   const fetchData = async () => {
 
     try {
-      const response = await fetch(`http://localhost:4000/meubles/byId/${id}`);
+      const response = await fetch(`http://localhost:${port}/meubles/${id}`);
       const jsonData = await response.json();
 
       console.log(jsonData);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Vignette from "../Vignette/Vignette";
-
+const port=import.meta.env.VITE_PORT
 
 function Main() {
 
@@ -14,7 +14,7 @@ function Main() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/meubles");
+      const response = await fetch(`http://localhost:${port}/meubles`);
 
       const jsonData = await response.json();
 

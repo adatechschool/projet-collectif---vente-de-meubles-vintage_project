@@ -4,9 +4,10 @@ const createObjectDetailProduct = ((req,res,next)=>{
   //  Selectionner le meuble avec le même ID de la selection du meuble
 
     const id = req.params.id
-    const query = "SELECT titre FROM testmeubles WHERE testmeubles_id = ?"
-
+    const query = "SELECT titre FROM testmeubles WHERE id ="+id
+    console.log(id)
     connect.query(query,{id} ,(error, results) => {
+      console.log('controlleur ?')
       if (error) {
         console.error("Erreur lors de l'insertion de l'utilisateur", error);
       } else {
