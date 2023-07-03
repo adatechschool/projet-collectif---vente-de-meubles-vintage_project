@@ -5,7 +5,10 @@ import { styled } from '@mui/system';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Badge from '@mui/material/Badge';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import Icon_admin from '../Icon_admin/Icon_admin';
+// const verifAdmin = false;
+const verifAdmin = true;
 const CustomBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     color: "white",
@@ -13,7 +16,9 @@ const CustomBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
+
 function Navbar() {
+  
   const backgroundStyle = {
     backgroundImage: "url('/src/assets/logo-sun.png')",
     backgroundRepeat: 'no-repeat',
@@ -27,6 +32,7 @@ function Navbar() {
           <li className='ml-[10%] mt-6 text-4xl text-dark-brown font-aurore'>Vintage</li>
         </div>
         <div className='flex justify-end items-center w-1/4'>
+          <Icon_admin admin={verifAdmin}/> 
           <li className='flex-3 mr-2.5'>
             <Link to="/panier" className='text-dark-brown'>
               <CustomBadge badgeContent={130}>
@@ -35,6 +41,7 @@ function Navbar() {
             </Link>
           </li>
           <li className='flex-3 mt-3 text-dark-brown'><MenuIcon sx={{ fontSize: 70 }} /></li>
+
           {/* A revoir, composant menu  <li><Menu/></li> */}
         </div>
       </ul>

@@ -20,7 +20,7 @@ function Main() {
   };
 
   return (
-    <div id="main" className="flex flex-wrap min-h-screen">
+  <div id="main" className="flex flex-wrap min-h-screen">
       {data ? (
         data.map((item) => (
           <Vignette key={item.id} nom={item.titre} prix={item.prix} />
