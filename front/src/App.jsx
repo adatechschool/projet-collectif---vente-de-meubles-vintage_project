@@ -5,7 +5,7 @@ import Admin from "./pages/Admin/Admin";
 import Panier from "./pages/Panier/Panier";
 import Produit from "./pages/Produit/Produit";
 import './App.css'
-import Signup from "./pages/Signup/Signup";
+import Signup from "./pages/Signup/signup";
 
 function App() {
 

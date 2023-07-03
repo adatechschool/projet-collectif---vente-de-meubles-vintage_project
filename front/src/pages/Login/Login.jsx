@@ -1,5 +1,5 @@
 import React from 'react';
-import Signup from '../Signup/Signup';
+import Signup from '../Signup/signup';
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./imageLogin.jpg";

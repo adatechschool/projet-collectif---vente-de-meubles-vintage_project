@@ -9,7 +9,9 @@ function test(){
     firstname : prenom,
     email : email
   }
-    const url = "http://localhost:3000/" // j'ai changé le /test en /
+
+    const url = "http://localhost:3000/login" // j'ai changé le /test en /
+
     fetch(url, {
         method: 'POST',
         headers: {
@@ -19,11 +21,14 @@ function test(){
       })
         .then(response => response.json()) // Traitement de la réponse comme JSON
         .then(data => {
+          console.log("data",data)
           alert(data.message)
-         
-          const redirectionUrl = "/inscription?nom=" + encodeURIComponent(nom) + "&prenom=" + encodeURIComponent(prenom) + "&email=" + encodeURIComponent(email);
-          window.location.href = redirectionUrl;
+          if (data.message== "Utilisateur ok LOGIN") {
+            const redirectionUrl = "/inscription?nom=" + encodeURIComponent(nom) + "&prenom=" + encodeURIComponent(prenom) + "&email=" + encodeURIComponent(email);
+            window.location.href = redirectionUrl;
 
+          }
+          
           // window.location.href = "/inscription"; //Nous redirigons vers des route exemple : "/inscription et non vers des fichier html"
         })
         .catch(error => {
@@ -31,5 +36,7 @@ function test(){
           console.error(error);
         });
 }
+
+
 
 
