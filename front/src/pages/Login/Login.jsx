@@ -1,13 +1,9 @@
 import React from 'react';
-import Signup from '../Signup/signup';
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./imageLogin.jpg";
 import { handleClick2 } from '../../function/handleClick';
 
-const color = {
-  background: "#f5f5f5"
-}
 
 function Login() {
   return (
@@ -43,13 +39,15 @@ function Login() {
               className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
           </div>
 
-//           connexion 
           <div className='w-full flex items-center  '>
             <div className='w-full flex items-center'>
               <input
                 type='checkbox'
                 className='w-4 h-4 mr-2 '/>
                 <p className='text-sm'>Remember me</p>
+            </div>
+            <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot Password?</p>
+          </div>
 
             <div className='w-full flex flex-col my-8'>
               <div className='w-full text-[#ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
@@ -60,27 +58,13 @@ function Login() {
               <div className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'>
                 <Link to="/signup" className='text-black'><Bouton texteBouton='Sign up' /></Link>
               </div>
-// fin problèm
+           </div>
+          </div>
+            <div className ="w-full items-center space-y-20">
+              <p className="text-sm text-center font-normal text-[#060606]">Vous n&#39;avez pas encore de compte? <Link to="signup"><span className='font-semibold underline underline-offset-2 curson-pointer'> Sign up</span></Link></p>
             </div>
-            <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot Password?</p>
-          </div>
-
-          <div className='w-full flex flex-col my-8'>
-            <div className='w-full text-[ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
-              <Link to="/accueil" className="text-white"><Bouton texteBouton='Login' /></Link>
-            </div>  
-            
-            <div className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'>
-              <Link to="/signup" className="text-black"><Bouton texteBouton='Sign up' /></Link>
-            </div> 
-          </div>
-        </div>
-
-        <div className="w-full items-center space-y-10 lg:space-y-20">
-          <p className="text-sm lg:text-base text-center font-normal text-[#060606]">Don t have an account? <Link to="signup"><span className='font-semibold underline underline-offset-2 cursor-pointer'> Sign up</span></Link></p>
         </div>
       </div>
-    </div>
   )
 }
 
