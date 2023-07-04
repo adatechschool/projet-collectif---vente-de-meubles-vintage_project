@@ -11,7 +11,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", express.static("../front/dist/"))
+// app.use("/", express.static("../front/dist/"))
+app.use("/images", express.static("./Assets/img_meubles/"))
+// app.use("/", express.static("../"))
 // app.use("/", express.static("../front/dist/"))
 app.use("/inscription", express.static("./client/inscription.html")); 
 
