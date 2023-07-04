@@ -18,4 +18,23 @@ connect.query(query, {id}, (error, results) => {
 
 })
 
-module.exports = {deleteObject}
+
+const updateObject = (req, res, next) => {
+  const id = req.params.id;
+  const { titre, prix, description, photo } = req.body;
+
+  const query = "UPDATE testmeubles SET titre = ?, prix = ?, description = ?, photo = ? WHERE id = ?";
+  const values = [titre, prix, description, photo, id];
+
+  connect.query(query, values, (error, results) => {
+    if (error) {
+      console.error("Erreur lors de la modification du meuble", error);
+      res.status(500).send({ message: "Erreur lors de la modification du meuble" });
+    } else {
+      console.log("Modification du meuble réalisée avec succès");
+      res.status(200).send({ message: "Modification du meuble réalisée avec succès" });
+      // Perform other necessary actions if needed
+    }
+  });
+};
+module.exports = {deleteObject, updateObject}
