@@ -19,7 +19,7 @@ function Create() {
         e.preventDefault();
         try {
             // const url = `${host}:${port}/meubles/create`;
-            const url = 'http://localhost:3000/meubles/create';
+            const url = `${host}:${port}/meubles/create`;
             let res = await fetch(url, {
                 method: "POST",
                 headers: {
