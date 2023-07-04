@@ -24,11 +24,8 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
     const {panier} = useContext(panierContext)
     const addToPanier = () => {
         // setPanier((e) => e + 1)
-        let cart = []
-        setPanier((e) => {
-            e.push({nom, prix})
-            return e
-        }  )
+        let cart = {nom, prix}
+        setPanier((e) => [...e, cart])
         console.log(nom);
         console.log('meuble ajoute');
         console.log(panier);
@@ -36,7 +33,7 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
     
 
     return (
-        <div className="flex flex-col justify-center items-center w-full h-full" key={id}>
+        <div className="flex flex-col justify-center items-center w-full h-full space-y-6  m-auto p-10" key={id}>
             <h1>{nom}</h1>
             <p>{description}</p>
             <p>Dimension : {hauteur} x {largeur} x {longueur} </p>
@@ -44,7 +41,7 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
             <p>{prix} €</p>
             {/* Lien à faire vers ajout panier  */}
             {/* <Link to="/panier"> */}
-                <button onClick = {addToPanier}> Ajouter au panier</button>
+                <button className=' border-gray-700 bg-slate-600 text-white w-60 rounded-md m-2 p-2' onClick = {addToPanier}> Ajouter au panier</button>
                 {/* <Bouton texteBouton="Ajouter au panier"/> */}
             {/* </Link> */}
         </div>
@@ -53,10 +50,3 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
 
 export default Detail; 
 
-
-// {function addToCart(id ){
-//                     let cart = []
-//                     const item = produit.find((product) => product.id ===id)
-//                     console.log(item);
-//                     cart.push(item)
-//                     }   }

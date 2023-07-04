@@ -22,7 +22,7 @@ function Vignette({id, nom, prix, photo}) {
             </div>
             <div className='acheter bg-red-200 w-1/3 p-2'>
           {/* ici Navigate va agir comme router.push our aller à l'URL spécifique*/}
-            <button onClick ={() => {navigate(`/produit/${id}`)}}>Réserver</button>
+            <button onClick ={() => {navigate(`/produit/${id}`)}}>Détail</button>
             {/* //remettre le bouton et réaliser le onclick sur l'image */}
             {/* <Bouton texteBouton="Acheter" /> */}
 
