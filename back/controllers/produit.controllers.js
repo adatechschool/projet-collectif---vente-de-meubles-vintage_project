@@ -17,4 +17,8 @@ const createObjectDetailProduct = ((req,res,next)=>{
       });
 })
 
+const createNewProduct = ((req,res,next)=>{
+  
+})
+
 module.exports = {createObjectDetailProduct}
