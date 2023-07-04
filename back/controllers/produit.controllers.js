@@ -35,8 +35,8 @@ const createNewProduct = ((req,res,next)=>{
     if(error){
       console.error("Erreur lors de la création d'un nouveau produit",error)
     }else{
-      console.log("Produit créer avec succès")
-      res.status(200).send({message: "Produit créer avec succès"})
+      console.log("Produit créé avec succès")
+      res.status(200).send({message: "Produit créé avec succès"})
     }
   })
 })
