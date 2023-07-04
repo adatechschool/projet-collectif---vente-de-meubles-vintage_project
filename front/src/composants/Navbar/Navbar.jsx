@@ -12,6 +12,7 @@ import { useContext } from 'react';
 
 // const verifAdmin = false;
 const verifAdmin = true;
+
 const CustomBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     color: "white",
@@ -40,7 +41,7 @@ function Navbar() {
           <Icon_admin admin={verifAdmin}/> 
           <li className='flex-3 mr-2.5'>
             <Link to="/panier" className='text-dark-brown'>
-              <CustomBadge badgeContent={panier}>
+              <CustomBadge badgeContent={(panier.length)}>
                 <LocalMallIcon sx={{ fontSize: 70 }} />
               </CustomBadge>
             </Link>

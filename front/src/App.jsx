@@ -12,7 +12,7 @@ import { createContext, useContext, useState } from "react";
 
 function App() {
   
-  const [panier, setPanier] = useState(0);
+  const [panier, setPanier] = useState([]);
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>

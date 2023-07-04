@@ -25,7 +25,10 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
     const addToPanier = () => {
         // setPanier((e) => e + 1)
         let cart = []
-        setPanier((nom) => panier.push(nom))
+        setPanier((e) => {
+            e.push({nom, prix})
+            return e
+        }  )
         console.log(nom);
         console.log('meuble ajoute');
         console.log(panier);
