@@ -1,5 +1,5 @@
 const port = import.meta.env.VITE_PORT
-function updateMeubleInfo(){
+function updateMeubleInfo(id){
     
     const titre = document.getElementById("titre").value;
     const prix = document.getElementById("prix").value;
@@ -15,7 +15,7 @@ function updateMeubleInfo(){
     }
     console.log("data update meuble",data)
     
-      const url = `http://localhost:${port}/admin/:id`
+      const url = `http://localhost:${port}/admin/${id}`
 
       fetch(url, {
           method: 'PUT',

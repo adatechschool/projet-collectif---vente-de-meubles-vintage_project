@@ -53,7 +53,7 @@ function ModifTable(){
                     <td className='flex mx-2 my-auto'>
                         <div className="ml-2">
                             <button onClick ={() => {
-                                updateMeubleInfo()
+                                updateMeubleInfo(produitDetail.id)
                                 navigate(`/admin`)
                                 }}>Enregistrer modification</button>
                         </div>
