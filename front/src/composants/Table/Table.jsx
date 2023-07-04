@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useNavigate } from 'react-router-dom';
 
 const port = import.meta.env.VITE_PORT
 
-function Table({ dataParam }) {
-
+function Table() {
+    let navigate = useNavigate()
     const [data, setData] = useState(null);
     useEffect(() => {
         fetchData();
@@ -44,7 +45,8 @@ function Table({ dataParam }) {
                                         <DeleteForeverIcon className="text-red-600" sx={{ fontSize: 50 }} />
                                     </div>
                                     <div className="ml-2">
-                                        <EditIcon sx={{ fontSize: 50 }} />
+                                    <button onClick ={() => {navigate(`/modif/${el.id}`)}}><EditIcon sx={{ fontSize: 50 }}  /></button>
+                                    
                                     </div>
                                 </td>
                             </tr>
