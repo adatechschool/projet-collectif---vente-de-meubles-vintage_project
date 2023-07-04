@@ -54,7 +54,7 @@ function Signup() {
               <input
                 type="text"
                 value={name}
-                placeholder='Your name'
+                placeholder='Nom'
                 className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                 onChange={(e) => setName(e.target.value)}
               />
@@ -62,7 +62,7 @@ function Signup() {
               <input
                 type="text"
                 value={firstname}
-                placeholder='Your first name'
+                placeholder='Prénom'
                 className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -78,19 +78,19 @@ function Signup() {
               <input
                 type="password"
                 value={password}
-                placeholder='Password'
+                placeholder='Mot de passe'
                 className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                 onChange={(e) => setPassword(e.target.value)}
               />
 
               <button type="submit" className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
-                Create account
+                Créer votre compte
               </button>
             </form>
           </div>
 
           <div className="w-full items-center space-y-10 lg:space-y-20">
-            <p className="text-sm lg:text-base text-center font-normal text-[#060606] mt-12">Don't have an account? <Link to=".."><span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign in</span></Link></p>
+            <p className="text-sm lg:text-base text-center font-normal text-[#060606] mt-12">Vous avez un compte? <Link to=".."><span className='font-semibold underline underline-offset-2 cursor-pointer'>Connectez-vous</span></Link></p>
           </div>
         </div>
       </div>
