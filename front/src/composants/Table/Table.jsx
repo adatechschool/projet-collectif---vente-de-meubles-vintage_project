@@ -2,6 +2,7 @@ import React from 'react'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Link } from 'react-router-dom';
 
 function Table({data}) {
   return (
@@ -33,7 +34,9 @@ function Table({data}) {
                 }   
             </tbody>
       </table>
-      <AddCircleIcon className='text-dark-brown' sx={{fontSize:50}}/>
+      <Link to="/create">
+        <AddCircleIcon className='text-dark-brown' sx={{fontSize:50}}/>
+      </Link>
     </div>
   )
 }
