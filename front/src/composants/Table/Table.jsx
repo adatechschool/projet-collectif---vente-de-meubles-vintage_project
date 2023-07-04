@@ -5,6 +5,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useNavigate } from 'react-router-dom';
 import deleteMeuble from '../../function/deleteMeuble';
 
+
 const port = import.meta.env.VITE_PORT
 
 function Table() {
@@ -39,6 +40,7 @@ function Table() {
                 <tbody className='border-4'>
                     {data ? (
                         data.map(el => (
+
                             <tr key={el.id} className="border-2">
                                 <td className='px-2'>{el.titre}</td>
                                 <td className='border-2 px-2'>{el.prix} €</td>

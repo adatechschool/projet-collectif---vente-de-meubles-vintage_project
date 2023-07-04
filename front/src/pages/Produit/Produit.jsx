@@ -2,17 +2,18 @@
 // import React from 'react';
 import Navbar from '../../composants/Navbar/Navbar';
 import Slider from '../../composants/Slider/Slider';
-import { produits } from '../../data/produits';
+// import produitsBDD  from '../../data/produits';
 import Detail from '../../composants/Detail/Detail';
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const port=import.meta.env.VITE_PORT
 
 function Produit() {
-
+  // const location = useLocation();
+  // const id = location.pathname.split("/")[2]; 
   let { id } = useParams()
-  
   const [produitDetail, setproduitDetail] = useState({});
 
 
@@ -25,9 +26,8 @@ function Produit() {
     try {
       const response = await fetch(`http://localhost:${port}/meubles/${id}`);
       const jsonData = await response.json();
-
-      console.log(jsonData);
-      setproduitDetail(jsonData);
+      console.log(jsonData)
+      setproduitDetail(jsonData[0]);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -52,15 +52,15 @@ function Produit() {
         <div className='flex justify-center items-center'>
           {/* requête : from table meuble where id = id de la viguette sélectionné  */}
           <Detail
-            id={selectedProduit.id}
-            nom={selectedProduit.nom}
-            prix={selectedProduit.prix}
-            description={selectedProduit.description}
-            hauteur={selectedProduit.hauteur}
-            largeur={selectedProduit.largeur}
-            longueur={selectedProduit.longueur}
-            disponibilite={selectedProduit.disponibilite}
-            categorie={selectedProduit.categorie}
+            id={id}
+            nom={produitDetail.titre ?? "..."}
+            prix={produitDetail.prix ?? "..."}
+            description={produitDetail.description ?? "..."}
+            // hauteur={produitDetail.hauteur}
+            // largeur={produitDetail.largeur}
+            // longueur={produitDetail.longueur}
+            // disponibilite={produitDetail.disponibilite}
+            // categorie={produitDetail.categorie}
           />
         </div>
       </div>
