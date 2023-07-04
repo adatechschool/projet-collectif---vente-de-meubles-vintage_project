@@ -31,6 +31,7 @@ function Table() {
                     <tr>
                         <th className='border-2 text-2xl'>Nom</th>
                         <th className='border-2 text-2xl'>Prix</th>
+                        <th className='border-2 text-2xl'>Description</th>
                         <th className='border-2 text-2xl'>Actions</th>
                     </tr>
                 </thead>
@@ -40,6 +41,7 @@ function Table() {
                             <tr key={el.id} className="border-2">
                                 <td className='px-2'>{el.titre}</td>
                                 <td className='border-2 px-2'>{el.prix} €</td>
+                                <td className='border-2 px-2'>{el.description}</td>
                                 <td className='flex mx-2 my-auto'>
                                     <div className='mr-2 '>
                                         <DeleteForeverIcon className="text-red-600" sx={{ fontSize: 50 }} />
