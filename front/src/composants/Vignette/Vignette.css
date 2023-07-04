@@ -1,0 +1,8 @@
+.body{
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 1em;
+}
+/* .button{
+    background-color: lightgray;
+} */

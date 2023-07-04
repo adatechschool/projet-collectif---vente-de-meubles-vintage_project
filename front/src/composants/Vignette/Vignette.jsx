@@ -1,32 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button'  
-
-
-
+import { Card, Badge } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
+import "./Vignette.css"  
 
 function Vignette({ id, nom, prix, photo }) {
   // Utilisation du Hook UseNavigate pour accéder à un URL spécifique aux pages avant ou arrière
   let navigate = useNavigate();
 
   return (
-    <div>
-    <Card style={{ width: '20rem' }}>
+    <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src="holder.js/100px180" />
-    <Card.Body>
+    <Card.Body className="body">
       <Card.Title>{nom}</Card.Title>
-      {/* <Card.Prix>{prix}</Card.Prix> */}
-      <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the card's content.
-      </Card.Text>
-      <Button variant="primary" onClick={() => {navigate(`/produit/${id}`);}}>Go somewhere</Button>
+      <Badge variant="primary">{prix} €</Badge>
+      {/* <Card.Text variant="primary">
+      {prix} €
+      </Card.Text> */}
+      <Button className="button" onClick={() => {navigate(`/produit/${id}`);}} variant="outline-primary">Go somewhere</Button>
       {/* <button onClick={() => {navigate(`/produit/${id}`);}}>Réserver</button> */}
     </Card.Body>
   </Card>
-  </div>
   );
 }
 
