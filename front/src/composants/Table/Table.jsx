@@ -3,6 +3,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useNavigate } from 'react-router-dom';
+import deleteMeuble from '../../function/deleteMeuble';
 
 const port = import.meta.env.VITE_PORT
 
@@ -44,10 +45,10 @@ function Table() {
                                 <td className='border-2 px-2'>{el.description}</td>
                                 <td className='flex mx-2 my-auto'>
                                     <div className='mr-2 '>
-                                        <DeleteForeverIcon className="text-red-600" sx={{ fontSize: 50 }} />
+                                    <button onClick ={() => {deleteMeuble(el.id)}}> <DeleteForeverIcon className="text-red-600" sx={{ fontSize: 50 }} /></button>
                                     </div>
                                     <div className="ml-2">
-                                    <button onClick ={() => {navigate(`/modif/${el.id}`)}}><EditIcon sx={{ fontSize: 50 }}  /></button>
+                                    <button onClick ={() => {navigate(`/modif/${el.id}`)}}> <EditIcon sx={{ fontSize: 50 }}  /></button>
                                     
                                     </div>
                                 </td>
