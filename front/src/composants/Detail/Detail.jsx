@@ -21,10 +21,14 @@ import { panierContext } from '../../App';
 const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponibilite }) => {
 
     const {setPanier} = useContext(panierContext)
-    const addToPanier = () => {setPanier((b) => b + 1)
-        
+    const {panier} = useContext(panierContext)
+    const addToPanier = () => {
+        // setPanier((e) => e + 1)
+        let cart = []
+        setPanier((nom) => panier.push(nom))
+        console.log(nom);
         console.log('meuble ajoute');
-     
+        console.log(panier);
     }
     
 

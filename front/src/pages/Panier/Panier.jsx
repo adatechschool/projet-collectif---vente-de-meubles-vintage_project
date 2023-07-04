@@ -1,10 +1,11 @@
 import React from 'react'
 import { createContext, useContext, useState} from 'react';
+import { panierContext } from '../../App';
 
 function Panier() {
 
   const {panier} = useContext(panierContext);
-  
+  console.log(panier);
 
   // useEffect(() => {
 
@@ -28,19 +29,17 @@ function Panier() {
 
   return (
     <>
-   <div>({panier})</div>
-  {/* <div className="shopping-cart  box-border min-h-screen w-screen m-20 border-x-slate-800 rounded-md flex col-auto">
+  <div className="shopping-cart  box-border min-h-screen w-screen m-20 border-x-slate-800 rounded-md flex col-auto">
      <div className="title"> Shopping Bag </div>
-   {/* Display les produits */}
-    {/*{cartItems.map((item) => (
+
+    {cart.map((item) => (
       <div className="item p-5  h-28 flex border-y-black border-t-black">
         <div className="buttons relative pt-8 mr-16">
           <span className="delete-btn inline-block cursor-pointer w-4 h-4"></span>
           <span className="like-btn inline-block cursor-pointer  absolute top-2 left-4 w-14 h-14"></span>
         </div>
  
-        <div className="image mr-14"><img src={item.photo} alt="" />
-        </div>
+        <div className="image mr-14">produit</div>
  
         <div className="description pt-3 mr-16 w-28">{item.titre}
         </div>
@@ -49,7 +48,7 @@ function Panier() {
         </div>
       </div>
     ))}  
-    </div> */}
+    </div>
   </>
   )
 }
