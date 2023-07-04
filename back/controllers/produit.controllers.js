@@ -2,7 +2,6 @@ const connect  = require('../sql/connexion');
 
 const createObjectDetailProduct = ((req,res,next)=>{
   //  Selectionner le meuble avec le même ID de la selection du meuble
-
     const id = req.params.id
     const query = "SELECT DISTINCT * FROM testmeubles WHERE id ="+id
     connect.query(query,{id} ,(error, results) => {
