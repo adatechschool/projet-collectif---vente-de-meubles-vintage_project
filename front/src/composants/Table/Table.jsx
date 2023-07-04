@@ -3,14 +3,14 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-function Table({data}) {
+function Table(data) {
   return (
     <div className='flex flex-col justify-around items-center min-h-[75vh] mt-3'>
         <table className='border-4 table-auto mx-auto'>
             <thead className="text-red-600">
                 <tr>
-                    <th className='border-2 text-2xl'>Nom</th>
-                    <th className='border-2 text-2xl'>Prix</th>
+                    <th className='border-2 text-2xl'>nom</th>
+                    <th className='border-2 text-2xl'>prix</th>
                     <th className='border-2 text-2xl'>Actions</th>
                 </tr>
             </thead>
