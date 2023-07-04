@@ -8,7 +8,12 @@ import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { createContext, useContext } from 'react';
+
+
 const port=import.meta.env.VITE_PORT
+
+
 
 function Produit() {
   // const location = useLocation();
@@ -56,11 +61,11 @@ function Produit() {
             nom={produitDetail.titre ?? "..."}
             prix={produitDetail.prix ?? "..."}
             description={produitDetail.description ?? "..."}
-            // hauteur={produitDetail.hauteur}
-            // largeur={produitDetail.largeur}
-            // longueur={produitDetail.longueur}
-            // disponibilite={produitDetail.disponibilite}
-            // categorie={produitDetail.categorie}
+            hauteur={produitDetail.hauteur}
+            largeur={produitDetail.largeur}
+            longueur={produitDetail.longueur}
+            disponibilite={produitDetail.disponibilite}
+            categorie={produitDetail.categorie}
           />
         </div>
       </div>

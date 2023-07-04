@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
 
-    password: process.env.PASSWORD,
+    password: 'root',
     database: 'vente_meubles',
     port: process.env.PORT_BDD
   });

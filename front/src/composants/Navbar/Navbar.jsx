@@ -7,6 +7,9 @@ import Badge from '@mui/material/Badge';
 import MenuIcon from '@mui/icons-material/Menu';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import Icon_admin from '../Icon_admin/Icon_admin';
+import { panierContext } from '../../App';
+import { useContext } from 'react';
+
 // const verifAdmin = false;
 const verifAdmin = true;
 const CustomBadge = styled(Badge)(({ theme }) => ({
@@ -18,7 +21,9 @@ const CustomBadge = styled(Badge)(({ theme }) => ({
 
 
 function Navbar() {
-  
+  const {panier} = useContext(panierContext)
+
+
   const backgroundStyle = {
     backgroundImage: "url('/src/assets/logo-sun.png')",
     backgroundRepeat: 'no-repeat',
@@ -35,7 +40,7 @@ function Navbar() {
           <Icon_admin admin={verifAdmin}/> 
           <li className='flex-3 mr-2.5'>
             <Link to="/panier" className='text-dark-brown'>
-              <CustomBadge badgeContent={130}>
+              <CustomBadge badgeContent={panier}>
                 <LocalMallIcon sx={{ fontSize: 70 }} />
               </CustomBadge>
             </Link>
