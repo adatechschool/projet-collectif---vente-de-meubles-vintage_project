@@ -1,8 +1,9 @@
 import React from 'react';
-import Signup from '../Signup/Signup';
+import Signup from '../Signup/signup';
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./imageLogin.jpg";
+import { handleClick2 } from '../../function/handleClick';
 
 const color = {
   background: "#f5f5f5"
@@ -42,12 +43,24 @@ function Login() {
               className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none' />
           </div>
 
+//           connexion 
           <div className='w-full flex items-center  '>
             <div className='w-full flex items-center'>
               <input
                 type='checkbox'
                 className='w-4 h-4 mr-2 '/>
                 <p className='text-sm'>Remember me</p>
+
+            <div className='w-full flex flex-col my-8'>
+              <div className='w-full text-[#ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
+                <Link to="/accueil"><Bouton texteBouton='Test'/></Link>
+                <Bouton onClick={handleClick2} texteBouton='Log in'/> 
+              </div>  
+
+              <div className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'>
+                <Link to="/signup" className='text-black'><Bouton texteBouton='Sign up' /></Link>
+              </div>
+// fin problèm
             </div>
             <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot Password?</p>
           </div>

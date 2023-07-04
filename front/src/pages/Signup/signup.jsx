@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import COVER_IMAGE from "./img.jpg";
-
 const port=import.meta.env.VITE_PORT;
 
 function Signup() {
@@ -9,34 +8,35 @@ function Signup() {
   const [firstname, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const addUser = async (e) => {
+  
+  let addUser = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:${port}/signup`;
-      const res = await fetch(url, {
+      const url = `http://localhost:${port}/signup`
+      let res = await fetch(url, {
         method: "POST",
+        // Le "headers" est absolument nécessaire sinon la requête n'aboutit pas 
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', 
         },
         body: JSON.stringify({
           name: name,
           firstname: firstname,
           email: email,
-          password: password,
+          password: password, // NON UTILISE PAR LE BACK POUR LE MOMENT
         }),
       });
-      const resJson = await res.json();
+      let resJson = await res.json();
       if (res.status === 200) {
-        alert(resJson.message);
-        window.location.href = "/";
+        alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
+        window.location.href = "/" // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
       } else {
-        alert("Utilisateur non créé");
+        alert("Utilisateur non créé")
       }
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-start bg-[#f5f5f5]">
@@ -48,7 +48,7 @@ function Signup() {
             <h3 className="text-3xl lg:text-4xl text-left font-semibold mb-2">Sign Up</h3>
             <p className="text-base lg:text-xl text-left">Veuillez entrer vos informations.</p>
           </div>
-
+    
           <div className='w-full flex flex-col space-y-4'>
             <form onSubmit={addUser}>
               <input
