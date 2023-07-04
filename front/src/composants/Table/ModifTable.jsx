@@ -13,7 +13,7 @@ function ModifTable(){
 
 
     useEffect(() => {
-    fetchData();
+        fetchData();
     }, []);
     
     const fetchData = async () => {
@@ -23,7 +23,7 @@ function ModifTable(){
       const jsonData = await response.json();
 
       console.log(jsonData);
-      setproduitDetail(jsonData);
+      setproduitDetail(jsonData[0]);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -42,17 +42,17 @@ function ModifTable(){
                     <th className='border-2 text-2xl'>Actions</th>
                 </tr>
             </thead>
-            {/* <tbody className='border-4'>
-                <tr key={data.id} className="border-2">
-                    <td className='px-2'>{data.titre}</td>
-                    <td className='border-2 px-2'>{data.prix} €</td>
+            <tbody className='border-4'>
+                <tr key={produitDetail.id} className="border-2">
+                    <td className='px-2'>{produitDetail.titre}</td>
+                    <td className='border-2 px-2'>{produitDetail.prix} €</td>
                     <td className='flex mx-2 my-auto'>
                         <div className="ml-2">
                             <button onClick ={() => {navigate(`/admin/${el.id}`)}}>valider</button>
                         </div>
                     </td>
                 </tr>
-            </tbody> */}
+            </tbody>
         </table>
     </div>
     )  
