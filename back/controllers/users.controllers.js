@@ -75,11 +75,8 @@ const checkedUser = (req, res, next) => {
 };
 
 const checkLogin = ((req, res, next) => {
-  // let email = req.body.email;
-	// let password = req.body.password;
-
-	let email = "j@gmail.com";
-	let password = "test";
+  let email = req.body.email;
+	let password = req.body.password;
 
 	if (email && password) {
 		// Execute SQL query that'll select the account from the database based on the specified email and password
