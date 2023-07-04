@@ -8,7 +8,8 @@ function Admin() {
   return (
     <div>
       <Navbar/>
-      <Table data={produits}/>
+      {console.log("page admin")}
+      <Table dataParam={produits}/>
       <Footer/>
     </div>
   )
