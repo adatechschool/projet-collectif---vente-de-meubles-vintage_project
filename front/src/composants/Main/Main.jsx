@@ -39,7 +39,7 @@ function Main() {
    {/* <div id="main" > */}
       {data ? (
         data.map((item) => (
-          <Vignette key={item.id} nom={item.titre} prix={item.prix} photo={item.photo} description={item.description}
+          <Vignette key={item.id} id={item.id} titre={item.titre} prix={item.prix} photo={item.photo} description={item.description}
           // <button onClick ={() => {navigate(`/produit/${item.id}`)}}/>
           />
          
