@@ -78,12 +78,20 @@ function Create() {
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
+                    {/* Reste à gerer l'image sans photo et l'enregistrement de la photo */}
                     <input
-                        type="text"
-                        value={photo}
+                        type="file"
+                        // value={photo}
                         placeholder="Photo du produit"
                         className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                        onChange={(e) => setPhoto(e.target.value)}
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                              setPhoto(file.name);
+                            }else {
+                                setPhoto("img_non_dispo.jpg")
+                            }
+                        }}
                     />
 
                     <button type="submit" className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
