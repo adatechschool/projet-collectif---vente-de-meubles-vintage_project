@@ -6,6 +6,7 @@ import { Modal } from '../../composants/Modal/Modal';
 function Panier() {
 
   const {panier} = useContext(panierContext);
+  const {setPanier} = useContext(panierContext);
   console.log("panier", panier);
 
   const calculateSubtotal = (panier) => {
@@ -39,11 +40,11 @@ function Panier() {
   //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
   // }, [cartItems]);
 
-
-
-
-
-
+  const removeItemFromPanier = (indexInLocalStorage) => {
+    let newCart = JSON.parse(localStorage.getItem('cartItems'));
+    newCart.splice(indexInLocalStorage, 1);
+    setPanier(newCart);
+  }
 
   return (
     <>
@@ -76,7 +77,7 @@ function Panier() {
     
 
               <button className="text-gray-600 transition hover:text-red-600"
-              onClick={() => removeItemFromPanier(item.id)}
+              onClick={() => removeItemFromPanier(index)}
               >
                 <span className="sr-only">Supprimer</span>
 
