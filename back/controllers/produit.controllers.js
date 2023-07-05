@@ -19,4 +19,28 @@ const createObjectDetailProduct = ((req,res,next)=>{
       });
 })
 
-module.exports = {createObjectDetailProduct}
+const createNewProduct = ((req,res,next)=>{
+  const titre = req.body.titre
+  const prix = req.body.prix
+  const description = req.body.description
+  const photo = req.body.photo
+
+  const values = [
+    titre,
+    prix,
+    description,
+    photo
+  ]
+
+  const query = "INSERT INTO testmeubles ( titre, prix, description, photo) VALUES (?,?,?,?)"
+  connect.query(query, values, (error, results) => {
+    if(error){
+      console.error("Erreur lors de la création d'un nouveau produit",error)
+    }else{
+      console.log("Produit créé avec succès")
+      res.status(200).send({message: "Produit créé avec succès"})
+    }
+  })
+})
+
+module.exports = {createObjectDetailProduct, createNewProduct}
