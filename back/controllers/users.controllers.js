@@ -5,14 +5,16 @@ const createObject = ((req,res,next)=>{
      const nom = req.body.name
      const prenom = req.body.firstname
      const email = req.body.email
+     const mdp = req.body.password
      const values = [
       nom,
       prenom,
-      email
+      email,
+      mdp
      ]
 
     
-     const query = "INSERT INTO test_users (nom, prenom, email) VALUES (?,?,?)"
+     const query = "INSERT INTO test_users (nom, prenom, email, mdp) VALUES (?,?,?,?)"
      connect.query(query, values, (error, results) => {
       if (error) {
         console.error("Erreur lors de l'insertion de l'utilisateur", error);
@@ -23,7 +25,7 @@ const createObject = ((req,res,next)=>{
       }
   
       // Fermer la connexion à la base de données
-      connect.end();
+      // connect.end();
     });
 })
 
@@ -48,7 +50,7 @@ const checkUserExists =((req,res, next) =>{
       console.log("user not found")
       res.status(200).send({message: "NON LOGIN"})
     }
-    connect.end();
+    // connect.end();
   })
 })
 
@@ -69,7 +71,39 @@ const checkedUser = (req, res, next) => {
       next()
     });
   }
-  connect.end()
+  // connect.end() 
 };
 
-module.exports = {createObject, checkUserExists, checkedUser}
+const checkLogin = ((req, res, next) => {
+  let email = req.body.email;
+	let password = req.body.password;
+
+	if (email && password) {
+		// Execute SQL query that'll select the account from the database based on the specified email and password
+		connect.query('SELECT * FROM test_users WHERE email = ? AND mdp = ?', [email, password], function(error, results, fields) {
+			// If there is an issue with the query, output the error
+			if (error) throw error;
+			// If the account exists
+			if (results.length > 0) {
+				// Authenticate the user
+
+				// req.session.loggedin = true;
+				// req.session.email = email;
+
+				// Redirect to home page
+
+				// res.redirect('/home');
+        res.status(200).send({message:`Log in OK : ${email}, ${password}`});
+			} else {
+        res.status(401).send({message:`Incorrect email and/or Password!`})
+				// res.send('Incorrect email and/or Password!');
+			}			
+			res.end();
+		});
+	} else {
+		res.send('Please enter email and Password!');
+		res.end();
+	}
+})
+
+module.exports = {createObject, checkUserExists, checkedUser, checkLogin}

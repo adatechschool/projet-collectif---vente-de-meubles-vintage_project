@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import Vignette from "../Vignette/Vignette";
-const port=import.meta.env.VITE_PORT
 import "./main.css"
+const port=import.meta.env.VITE_PORT;
+const host=import.meta.env.VITE_HOST;
 
 function Main() {
 
   const [data, setData] = useState(null);
   // const [photoData, setphotoData] = useState(null)
-
 
   useEffect(() => {
     fetchData();
@@ -15,10 +15,10 @@ function Main() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:${port}/meubles`);
+      const response = await fetch(`${host}:${port}/meubles`);
 
       const jsonData = await response.json();
-
+      
       // const photoResponse = await fetch("https://api.cloudinary.com/v1_1/dnzdkulto")
       // const jsonPhotoData = await photoResponse.json();
 
@@ -28,7 +28,6 @@ function Main() {
       console.log("Error:", error);
     }
   };
- 
 
   
 
@@ -39,7 +38,7 @@ function Main() {
    {/* <div id="main" > */}
       {data ? (
         data.map((item) => (
-          <Vignette key={item.id} id={item.id} titre={item.titre} prix={item.prix} photo={item.photo} description={item.description}
+          <Vignette key={item.id} nom={item.titre} prix={item.prix} photo={host+":"+port+"/images/"+item.photo} id={item.id}
           // <button onClick ={() => {navigate(`/produit/${item.id}`)}}/>
           />
          
