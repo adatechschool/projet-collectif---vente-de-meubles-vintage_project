@@ -3,7 +3,7 @@
 // import { useState, useEffect } from 'react';
 // import Bouton from '../Bouton/Bouton';
 // import { Link } from 'react-router-dom';
-import { createContext,useContext} from 'react';
+import { createContext,useContext, useEffect} from 'react';
 import { panierContext } from '../../App';
 
 // const [itemPanier, setItemPanier] = useState([]);
@@ -22,14 +22,14 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
 
     const {setPanier} = useContext(panierContext)
     const {panier} = useContext(panierContext)
-    const addToPanier = (a) => {
+    const addToPanier = () => {
         // setPanier((e) => e + 1)
         let cart = {nom, prix}
         // opérateur de décomposition
         setPanier((a) => [...a, cart])
-        console.log(a, 'ok');
+        // console.log(a, 'ok');
         console.log('meuble ajoute');
-        console.log(panier);
+        // console.log("panier", (panier));
     }
     
 

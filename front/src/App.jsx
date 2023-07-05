@@ -12,11 +12,11 @@ import Create from "./pages/Creation_produit/Create";
 import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 
 
-  export const panierContext = createContext({});
+export const panierContext = createContext({});
 
 function App() {
   
-  const [panier, setPanier] = useState([]);
+  const [panier, setPanier] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>
