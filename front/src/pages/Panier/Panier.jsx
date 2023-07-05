@@ -25,7 +25,7 @@ function Panier() {
   let promotion = useContext(reductionContext)
 
 
-  const total = subtotals- promotion
+  const total = (subtotals - promotion) > 0 ? subtotals - promotion : 0;
 
   const [showModal, setShowModal] = useState(false);
   
