@@ -10,8 +10,8 @@ import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { createContext, useContext } from 'react';
 
-
-const port=import.meta.env.VITE_PORT
+const port=import.meta.env.VITE_PORT;
+const host=import.meta.env.VITE_HOST;
 
 
 
@@ -50,7 +50,7 @@ function Produit() {
       <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
         {/* Zone Carousel Photos */}
         <div className='flex justify-center items-center h-auto'>
-          <Slider />
+          <img src={host+":"+port+"/images/"+produitDetail.photo}></img>
         </div>
 
         {/* Zone Texte Détails Meubles */}

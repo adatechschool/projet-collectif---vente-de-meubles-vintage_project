@@ -1,5 +1,4 @@
 import noImage from '../assets/img_vignette/img_non_dispo.jpg';
-
 // import noImage from '../../assets/img_vignette/img_non_dispo.jpg';
 
 export const images = [
@@ -10,3 +9,4 @@ export const images = [
     {"id": 5, "img": noImage},
     {"id": 6, "img": noImage},
 ]
+  
