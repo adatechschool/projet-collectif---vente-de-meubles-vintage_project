@@ -7,7 +7,7 @@ import Produit from "./pages/Produit/Produit";
 import Signup from "./pages/Signup/signup";
 
 import './App.css';
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import Create from "./pages/Creation_produit/Create";
 import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 
@@ -18,6 +18,17 @@ import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 function App() {
   
   const [panier, setPanier] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
+
+  useEffect(() => {
+    // Stockage dans le local storage à chaque fois qu'on modifie le panier
+    if (panier.length > 0) {
+      localStorage.setItem('cartItems', JSON.stringify(panier));
+      console.log("panier dans le local storage", localStorage.getItem('cartItems'));
+    } else {
+      localStorage.removeItem('cartItems')
+      console.log("Le panier est vide.")
+    }
+  }, [panier])
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>
