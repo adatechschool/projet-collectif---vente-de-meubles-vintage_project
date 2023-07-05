@@ -1,13 +1,19 @@
 .body{
-    display: grid;
+    display: flex;
     justify-items: center;
-    grid-row-gap: 1em;
+    gap: 1em;
+    width:100%;
+    padding:0;
 }
-.badge{
+/* .badge{
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow: theme('boxShadow.xl');
-}
+} */
 /* .button{
     background-color: lightgray;
 } */
+
+.prix{
+    margin : 2px;
+}

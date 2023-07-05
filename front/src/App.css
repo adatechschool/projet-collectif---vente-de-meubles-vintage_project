@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
 #root {
   margin: 0 auto;
   text-align: center;
+  font-family: PT Mono, monospace;
 }
-.html, body{
-  font-family: 'PT Mono', monospace;
-}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;

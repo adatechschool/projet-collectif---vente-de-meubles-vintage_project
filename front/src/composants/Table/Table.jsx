@@ -51,7 +51,7 @@ function Table() {
                                     <button onClick ={() => {deleteMeuble(el.id)}}> <DeleteForeverIcon className="text-red-600" sx={{ fontSize: 50 }} /></button>
                                     </div>
                                     <div className="ml-2">
-                                    <button onClick ={() => {navigate(`/modif/${el.id}`)}}> <EditIcon sx={{ fontSize: 50 }}  /></button>
+                                    <button onClick ={() => {navigate(`/modif/${el.id}`)}}> <EditIcon  className='text-dark-brown' sx={{ fontSize: 50 }}  /></button>
                                     
                                     </div>
                                 </td>
