@@ -24,12 +24,6 @@ const CustomBadge = styled(Badge)(({ theme }) => ({
 function Navbar() {
   const {panier} = useContext(panierContext)
 
-  // useEffect(() => {
-  //   // Stockage dans le local storage à chaque fois qu'on modifie le panier
-  //   localStorage.setItem('cartItems', JSON.stringify(panier));
-  //   console.log("panier dans le local storage", localStorage.getItem('cartItems'));
-  // }, [panier])
-
   const backgroundStyle = {
     backgroundImage: "url('/src/assets/logo-sun.png')",
     backgroundRepeat: 'no-repeat',

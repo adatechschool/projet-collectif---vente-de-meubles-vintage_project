@@ -6,18 +6,6 @@
 import { createContext,useContext, useEffect} from 'react';
 import { panierContext } from '../../App';
 
-// const [itemPanier, setItemPanier] = useState([]);
-
-// useEffect(() =>{
-//     if(addToPanier)
-//     localStorage.setItemPanier(, JSON.stringify(itemPanier));
-// }, [itemPanier])
-
-
-
-
-
-
 const Detail = ({id, nom, prix, description, photo, hauteur, largeur, longueur, disponibilite }) => {
 
     const {setPanier} = useContext(panierContext)
