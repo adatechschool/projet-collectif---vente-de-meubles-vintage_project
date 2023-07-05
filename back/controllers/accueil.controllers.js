@@ -1,6 +1,6 @@
 const connect  = require('../sql/connexion');
 
-const createObjectmeubles = ((req,res,next)=>{
+const displayObjectmeubles = ((req,res,next)=>{
     connect.query('SELECT id,titre,prix,description,photo FROM testmeubles', (error, results) => {
       if (error) {
         console.error("Erreur de récupération du meuble", error);
@@ -12,4 +12,4 @@ const createObjectmeubles = ((req,res,next)=>{
       });
 })
 
-module.exports = {createObjectmeubles}
+module.exports = {displayObjectmeubles}
