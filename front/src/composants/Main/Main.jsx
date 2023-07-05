@@ -18,9 +18,6 @@ function Main() {
       const response = await fetch(`${host}:${port}/meubles`);
 
       const jsonData = await response.json();
-      
-      // const photoResponse = await fetch("https://api.cloudinary.com/v1_1/dnzdkulto")
-      // const jsonPhotoData = await photoResponse.json();
 
       console.log(jsonData);
       setData(jsonData);

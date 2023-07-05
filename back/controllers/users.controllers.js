@@ -71,7 +71,9 @@ const checkedUser = (req, res, next) => {
       next()
     });
   }
+
   // connect.end() 
+
 };
 
 const checkLogin = ((req, res, next) => {
