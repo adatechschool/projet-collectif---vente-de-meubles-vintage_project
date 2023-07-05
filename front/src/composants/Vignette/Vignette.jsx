@@ -10,7 +10,7 @@ function Vignette({ id, nom, prix, photo }) {
   // Utilisation du Hook UseNavigate pour accéder à un URL spécifique aux pages avant ou arrière
   let navigate = useNavigate();
   return (
-
+<div className="m-4">
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src={photo} style={{height:'20rem'}}/>
     <Card.Body className="body">
@@ -23,7 +23,7 @@ function Vignette({ id, nom, prix, photo }) {
       {/* <button onClick={() => {navigate(`/produit/${id}`);}}>Réserver</button> */}
     </Card.Body>
   </Card>
-
+  </div>
   );
 }
 

@@ -30,7 +30,7 @@ function Main() {
 
   return (
   // <div id="main" className="grid flex justify-center gap-4 grid-cols-3 grid-rows-3">
-  <div id="main" className="grid">
+  <div id="main" className="grid bg-beige">
 
    {/* <div id="main" > */}
       {data ? (
