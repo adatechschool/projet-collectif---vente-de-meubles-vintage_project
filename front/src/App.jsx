@@ -13,6 +13,7 @@ import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 
 
   export const panierContext = createContext({});
+  export const reductionContext = createContext({})
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>
-    
+      <reductionContext.Provider value = {10}>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Login/>}/> 
@@ -33,7 +34,7 @@ function App() {
       <Route path="/modif/:id" element={<ModifAdmin/>}/>
     </Routes>
     </BrowserRouter>    
-    
+      </reductionContext.Provider>
     </panierContext.Provider>
 
   )

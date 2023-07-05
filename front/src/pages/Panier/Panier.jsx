@@ -1,6 +1,6 @@
 import React from 'react'
 import { createContext, useContext, useState} from 'react';
-import { panierContext } from '../../App';
+import { panierContext, reductionContext } from '../../App';
 import { Modal } from '../../composants/Modal/Modal';
 
 function Panier() {
@@ -14,7 +14,9 @@ function Panier() {
   };
 
   let subtotals = calculateSubtotal(panier)
-  let promotion = 10
+  let promotionString = 'ADATECH'
+  
+  let promotion = useContext(reductionContext)
 
 
   const total = subtotals- promotion
@@ -40,7 +42,25 @@ function Panier() {
   // }, [cartItems]);
 
 
+  const [promoMessage, setPromoMessage] = useState('');
+  const [promoUpdated, setPromoUpdated] = useState('');
 
+  const messageChange = (event) => {
+    setPromoMessage(event.target.value);
+  };
+
+  const messagePress = (event) => {
+    if (event.key === 'Enter') {
+      setPromoUpdated(promoMessage);
+    }
+  };
+
+  
+  const codePromo = () =>{
+    if( promotionString = promoUpdated){
+      return promotion
+    }
+  }
 
 
 
@@ -116,8 +136,9 @@ function Panier() {
               </div>
 
               <div class="flex justify-between">
-                <dt>Promo du jour</dt>
-                <dd>{promotion}€</dd>
+                <dt>Code Promo</dt>
+                <dd><input placeholder='Code Promo' value={promoMessage} onChange={messageChange} onKeyDown={messagePress} className='  text-right border-solid border-gray-800' onen></input></dd>
+                <dd>{codePromo()}€</dd>
               </div>
 
               <div class="flex justify-between !text-base font-medium ">

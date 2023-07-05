@@ -1,8 +1,24 @@
 import React from 'react'
 import './Header.css'
+import PopupDiscount from '../PopupDiscount/PopupDiscount'
+import { useState, useEffect } from 'react'
 
 function Header() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  
   return (
+    <>
+          {showPopup && <PopupDiscount />}
+
     <div className='header flex flex-col bg-cover text-dark-brown min-h-[50vh] bg-center'>
         <div className='border-[1px] border-black text-start mx-auto mt-8 mb-auto py-4 px-6 rounded-xl bg-beige opacity-[.85]'>
           <h1 className='text-6xl'>Vintage :</h1>
@@ -24,7 +40,9 @@ function Header() {
        
 
     </div>
+    </>
   )
+  
 }
 
 export default Header

@@ -6,8 +6,8 @@ const host=import.meta.env.VITE_HOST;
 
 function Main() {
 
+
   const [data, setData] = useState(null);
-  // const [photoData, setphotoData] = useState(null)
 
   useEffect(() => {
     fetchData();
