@@ -37,6 +37,13 @@ function Panier() {
     setPanier(newCart);
   }
 
+  const confirmPanier = () => {
+    // Quand le panier est confirmé, il est vidé
+    setPanier([]);
+    // Une modal avec les informations de livraison s'affiche
+    openModal();
+  }
+
   return (
     <>
       <Navbar />
@@ -132,7 +139,7 @@ function Panier() {
             <div className="flex flex-col items-center justify-end">
               <button
                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-               onClick={openModal}> Payer en boutique</button>
+               onClick={confirmPanier}> Payer en boutique</button>
                <Modal showModal={showModal} setShowModal = {setShowModal} />
               
               
