@@ -6,9 +6,6 @@
 import { createContext,useContext, useEffect} from 'react';
 import { panierContext } from '../../App';
 
-
-
-
 const Detail = ({id, nom, prix, description, photo, hauteur, largeur, longueur, disponibilite }) => {
 
     const {setPanier} = useContext(panierContext)

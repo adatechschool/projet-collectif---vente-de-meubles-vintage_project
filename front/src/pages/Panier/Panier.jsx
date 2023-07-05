@@ -2,6 +2,8 @@ import React from 'react'
 import { createContext, useContext, useState} from 'react';
 import { panierContext, reductionContext } from '../../App';
 import { Modal } from '../../composants/Modal/Modal';
+import Navbar from '../../composants/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 const port=import.meta.env.VITE_PORT;
 const host=import.meta.env.VITE_HOST;
@@ -62,7 +64,12 @@ function Panier() {
 
   return (
     <>
- 
+      <Navbar />
+      <div className='h-16 flex justify-start items-center'>
+        <Link to="/accueil" className='text-dark-brown'>
+        <p className='ml-[10%] w-full'>Retour à la recherche</p>
+        </Link>
+      </div>
 
 <section>
   <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
