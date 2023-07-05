@@ -5,7 +5,7 @@ import { Card, Badge } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 import "./Vignette.css"  
 
-function Vignette({ id, titre, prix, photo }) {
+function Vignette({ id, nom, prix, photo }) {
   // const variant = bg-dark-brown;
   // Utilisation du Hook UseNavigate pour accéder à un URL spécifique aux pages avant ou arrière
   let navigate = useNavigate();
@@ -13,7 +13,7 @@ function Vignette({ id, titre, prix, photo }) {
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src={photo}/>
     <Card.Body className="body">
-      <Card.Title>{titre}</Card.Title>
+      <Card.Title>{nom}</Card.Title>
       <Badge>{prix} €</Badge> 
       {/* <Card.Text variant="primary">
       {prix} €
