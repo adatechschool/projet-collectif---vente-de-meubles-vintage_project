@@ -12,7 +12,7 @@ function Vignette({ id, nom, prix, photo }) {
   return (
 
     <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src={photo}/>
+    <Card.Img variant="top" src={photo} style={{height:'20rem'}}/>
     <Card.Body className="body">
       <Card.Title>{nom}</Card.Title>
       <Badge>{prix} €</Badge> 
