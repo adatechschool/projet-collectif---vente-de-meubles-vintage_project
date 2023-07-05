@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import Bouton from '../../composants/Bouton/Bouton';
 import { Link } from 'react-router-dom';
@@ -41,6 +42,7 @@ function Login() {
 
 
   return (
+
     <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5]">
       <div className= 'relative w-1/2 h-full flex flex-col' >
         <div className= 'absolute top-[20%] left-[10%] right-[10%] flex flex-col '>
@@ -106,7 +108,7 @@ function Login() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Login;
