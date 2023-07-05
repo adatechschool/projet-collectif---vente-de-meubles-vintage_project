@@ -3,6 +3,11 @@
     justify-items: center;
     grid-row-gap: 1em;
 }
+.badge{
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+}
 /* .button{
     background-color: lightgray;
 } */
