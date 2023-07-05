@@ -17,7 +17,7 @@ import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 
 function App() {
   
-  const [panier, setPanier] = useState([]);
+  const [panier, setPanier] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>

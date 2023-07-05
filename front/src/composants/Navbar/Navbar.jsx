@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import Icon_admin from '../Icon_admin/Icon_admin';
 import { panierContext } from '../../App';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 // const verifAdmin = false;
 const verifAdmin = true;
@@ -24,6 +24,11 @@ const CustomBadge = styled(Badge)(({ theme }) => ({
 function Navbar() {
   const {panier} = useContext(panierContext)
 
+  useEffect(() => {
+    // Stockage dans le local storage à chaque fois qu'on modifie le panier
+    localStorage.setItem('cartItems', JSON.stringify(panier));
+    console.log("panier dans le local storage", localStorage.getItem('cartItems'));
+  }, [panier])
 
   const backgroundStyle = {
     backgroundImage: "url('/src/assets/logo-sun.png')",
