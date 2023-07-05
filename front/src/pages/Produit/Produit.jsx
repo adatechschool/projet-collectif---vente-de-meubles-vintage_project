@@ -2,7 +2,7 @@
 // import React from 'react';
 import Navbar from '../../composants/Navbar/Navbar';
 import Slider from '../../composants/Slider/Slider';
-import { produits } from '../../data/produits';
+// import produitsBDD  from '../../data/produits';
 import Detail from '../../composants/Detail/Detail';
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'

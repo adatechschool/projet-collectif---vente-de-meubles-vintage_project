@@ -6,6 +6,7 @@ import Panier from "./pages/Panier/Panier";
 import Produit from "./pages/Produit/Produit";
 import Signup from "./pages/Signup/signup";
 import Create from "./pages/Creation_produit/Create";
+import ModifAdmin from "./pages/ModifAdmin/ModifAdmin";
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/panier" element={<Panier/>}/>
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/create" element={<Create/>}/>
+      <Route path="/modif/:id" element={<ModifAdmin/>}/>
     </Routes>
     </BrowserRouter>
   )
