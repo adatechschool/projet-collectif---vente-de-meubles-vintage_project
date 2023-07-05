@@ -42,6 +42,7 @@ function ModifTable(){
                     <th className='border-2 text-2xl'>Titre</th>
                     <th className='border-2 text-2xl'>Prix</th>
                     <th className='border-2 text-2xl'>Description</th>
+                    <th className='border-2 text-2xl'>Photo</th>
                     <th className='border-2 text-2xl'>Actions</th>
                 </tr>
             </thead>
@@ -50,6 +51,7 @@ function ModifTable(){
                     <td className='px-2'> <input type="text" id="titre" placeholder={produitDetail.titre} /></td>
                     <td className='border-2 px-2'><input type="text" id="prix" placeholder={produitDetail.prix}/> €</td>
                     <td className='border-2 px-2'><input type="text" id='description' placeholder={produitDetail.description}/> </td>
+                    <td className='border-2 px-2'><input type="text" id='photo' placeholder={produitDetail.photo}/> </td>
                     <td className='flex mx-2 my-auto'>
                         <div className="ml-2">
                             <button onClick ={() => {

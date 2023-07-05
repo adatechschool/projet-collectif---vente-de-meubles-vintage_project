@@ -4,14 +4,18 @@ function updateMeubleInfo(id){
     const titre = document.getElementById("titre").value;
     const prix = document.getElementById("prix").value;
     const description = document.getElementById("description").value;
+    const photo = document.getElementById("photo").value;
     const titrePlaceholder = document.getElementById("titre").placeholder;
     const prixPlaceholder = document.getElementById("prix").placeholder;
     const descriptionPlaceholder = document.getElementById("description").placeholder;
+    const photoPlaceholder = document.getElementById("photo").placeholder;
     
     const data = {
       titre : titre ? titre:titrePlaceholder,
       prix : prix ? prix:prixPlaceholder,
-      description : description ? description:descriptionPlaceholder
+      description : description ? description:descriptionPlaceholder,
+      photo : photo ? photo:photoPlaceholder
+      
     }
     console.log("data update meuble",data)
     
