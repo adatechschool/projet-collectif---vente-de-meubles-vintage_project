@@ -9,13 +9,13 @@ import { panierContext } from '../../App';
 
 
 
-const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponibilite }) => {
+const Detail = ({id, nom, prix, description, photo, hauteur, largeur, longueur, disponibilite }) => {
 
     const {setPanier} = useContext(panierContext)
     const {panier} = useContext(panierContext)
     const addToPanier = () => {
         // setPanier((e) => e + 1)
-        let cart = {nom, prix}
+        let cart = {nom, prix, photo}
         // opérateur de décomposition
         setPanier((a) => [...a, cart])
         // console.log(a, 'ok');

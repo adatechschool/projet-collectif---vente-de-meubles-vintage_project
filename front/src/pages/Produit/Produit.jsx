@@ -61,6 +61,7 @@ function Produit() {
             nom={produitDetail.titre ?? "..."}
             prix={produitDetail.prix ?? "..."}
             description={produitDetail.description ?? "..."}
+            photo={produitDetail.photo}
             hauteur={produitDetail.hauteur}
             largeur={produitDetail.largeur}
             longueur={produitDetail.longueur}
