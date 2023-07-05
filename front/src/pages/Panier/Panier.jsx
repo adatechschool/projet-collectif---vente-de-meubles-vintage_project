@@ -120,7 +120,7 @@ function Panier() {
                 <dd>{promotion}€</dd>
               </div>
 
-              <div class="flex justify-between !text-base font-medium">
+              <div class="flex justify-between !text-base font-medium ">
                 <dt>Total</dt>
                 <dd>{total}€</dd>
               </div>
@@ -128,7 +128,7 @@ function Panier() {
 
 
 
-            <div class="flex justify-end">
+            <div class="flex flex-col items-center justify-end">
               <button
                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                onClick={openModal}> Payer en boutique</button>

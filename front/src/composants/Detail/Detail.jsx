@@ -22,11 +22,12 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
 
     const {setPanier} = useContext(panierContext)
     const {panier} = useContext(panierContext)
-    const addToPanier = () => {
+    const addToPanier = (a) => {
         // setPanier((e) => e + 1)
         let cart = {nom, prix}
-        setPanier((e) => [...e, cart])
-        console.log(nom);
+        // opérateur de décomposition
+        setPanier((a) => [...a, cart])
+        console.log(a, 'ok');
         console.log('meuble ajoute');
         console.log(panier);
     }

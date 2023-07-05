@@ -37,7 +37,7 @@ function Navbar() {
     <div className='bg-beige h-32' style={backgroundStyle}>
       <ul className='flex h-full '>
         <div className='h-full flex justify-start items-center w-3/4'>
-          <li className='ml-[10%] mt-6 text-4xl text-dark-brown font-aurore'>
+          <li className='ml-[10%] mt-6 text-4xl text-dark-brown font-aurore decoration-transparent   '>
           <Link to="/accueil">Vintage</Link></li>
         </div>
         <div className='flex justify-end items-center w-1/4'>

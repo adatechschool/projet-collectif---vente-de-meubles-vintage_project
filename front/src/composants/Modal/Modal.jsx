@@ -35,7 +35,7 @@ export const Modal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-        <div className='fixed flex  -translate-x-96   -translate-y-64    ' >
+        <div className='fixed flex   top-1/2 left-1/2 -translate-x-1/2  translate-y-1/2      ' >
         
             <div className='sm:w-[385px] sm:min-w-[40vw] min-w-[70vw] min-h-[45vh]  space-y-7 items-center gap-2 p-6 bg-[#d4c4cb] rounded-lg top-1/2 left-1/2 -translate-x-1/2 absolute' showModal={showModal}>
               <div className='text-[#2a435d]  mx-auto h-8 rounded-full bg-[#f7f7f7] w-8'><CheckIcon/></div>
