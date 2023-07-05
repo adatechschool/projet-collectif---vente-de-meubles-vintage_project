@@ -3,6 +3,9 @@ import { createContext, useContext, useState} from 'react';
 import { panierContext } from '../../App';
 import { Modal } from '../../composants/Modal/Modal';
 
+const port=import.meta.env.VITE_PORT;
+const host=import.meta.env.VITE_HOST;
+
 function Panier() {
 
   const {panier} = useContext(panierContext);
@@ -26,20 +29,6 @@ function Panier() {
       setShowModal(showModal=>!showModal);
   }
 
-  // useEffect(() => {
-
-  //   // Fetch cart items from localStorage on component mount
-  //   const storedCartItems = localStorage.getItem('cartItems');
-  //   if (storedCartItems) {
-  //     setCartItems(JSON.parse(storedCartItems));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   // Update localStorage when cartItems change
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // }, [cartItems]);
-
   const removeItemFromPanier = (indexInLocalStorage) => {
     let newCart = JSON.parse(localStorage.getItem('cartItems'));
     newCart.splice(indexInLocalStorage, 1);
@@ -59,11 +48,15 @@ function Panier() {
 
       <div className="mt-8">
       {panier.map((item, index) => (
+        // pour le moment on peut ajouter plusieurs fois le même produit au panier, son "id" n'est pas unique
+        // d'où l'utilisation d'index (position dans le panier) pour supprimer le bon produit si besoin
         <div key={index} className="mt-8 border-t border-gray-400 pt-8">
         <ul className="space-y-4">
           <li className="flex items-center gap-4">
             <img
-              src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
+              // image générique commentée à mettre si pas de photo disponible ?
+              // src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
+              src={host+":"+port+"/images/"+item.photo}
               className="h-16 w-16 rounded object-cover"
             />
 
