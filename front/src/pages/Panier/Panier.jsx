@@ -49,7 +49,7 @@ function Panier() {
 
   
   const codePromo = () =>{
-    if( promotionString = promoUpdated){
+    if( promotionString == promoUpdated){
       return promotion
     }
   }
