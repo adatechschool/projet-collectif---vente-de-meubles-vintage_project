@@ -32,7 +32,7 @@ function App() {
 
   return (
     <panierContext.Provider value={{panier, setPanier}}>
-      <reductionContext.Provider value = {10}>
+      <reductionContext.Provider value = {["ADATECH", 10]}>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Login/>}/> 
