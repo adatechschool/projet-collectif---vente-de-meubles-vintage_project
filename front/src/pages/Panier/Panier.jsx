@@ -80,15 +80,15 @@ function Panier() {
   return (
     <>
       <Navbar />
-      <div className='h-16 flex justify-start items-center'>
+      <div className='h-16 bg-beige  flex justify-start items-center'>
         <Link to="/accueil" className='text-dark-brown'>
-        <p className='ml-[10%] w-full'>Retour à la recherche</p>
+        <p className='ml-[10%] bg-beige w-full'>Retour à la recherche</p>
         </Link>
       </div>
 
 <section>
 
-<Navbar/>
+
   <div className="mx-auto bg-beige max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
 
     <div className="mx-auto max-w-3xl">
