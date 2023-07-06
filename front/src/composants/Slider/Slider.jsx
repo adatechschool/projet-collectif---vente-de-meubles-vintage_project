@@ -4,13 +4,9 @@ import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 
 
-const Slider = () => {
-  const carouselImages = images.map(({ img }) => ({
-    src: img
-  }));
-
+const Slider = ({photo}) => {
   return (
-    <Carousel images={carouselImages} style={{ height: 500, width: '80%' }} />
+   <img src={photo}></img>
   );
 };
 
