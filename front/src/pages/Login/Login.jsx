@@ -91,18 +91,18 @@ function Login() {
               </div>
 
               <div className='w-full flex flex-col my-4'>
-                <button className='w-full text-beige my-2 font-semibold bg-dark-brown rounded-md p-3 text-center flex items-center justify-center'>
+                <button className='w-full text-beige mt-2 font-semibold bg-dark-brown rounded-md p-3 text-center flex items-center justify-center'>
                   {/* <Link to="/accueil"><Bouton texteBouton='Test'/></Link> */}
                   <Bouton onClick={handleClick2} texteBouton='Log in'/> 
                 </button>
               </div>
             </form>  
 
-            <button className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-dark-brown rounded-md p-3 text-center flex items-center justify-center'>
+            <button className='w-full text-[#060606]  font-semibold bg-white border-2 border-dark-brown rounded-md p-3 text-center flex items-center justify-center'>
               <Link to="/signup" className='text-dark-brown'> <Bouton texteBouton='Sign up'/> </Link> 
             </button>
           </div>
-          <div className ="w-full items-center space-y-20">
+          <div className ="w-full items-center m-4 space-y-20">
           <p className="text-sm text-center font-normal text-[#060606]">Vous n&#39;avez pas encore de compte? <Link to="signup"><span className='font-semibold underline underline-offset-2 curson-pointer'> Sign up</span></Link></p>
         </div>
         </div>

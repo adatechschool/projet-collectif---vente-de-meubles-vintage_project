@@ -90,7 +90,7 @@ function Signup() {
           </div>
 
           <div className="w-full items-center space-y-10 lg:space-y-20">
-            <p className="text-sm lg:text-base text-center font-normal text-[#060606] mt-4">Vous avez un compte? <Link to=".."><span className='font-semibold underline underline-offset-2 cursor-pointer'>Connectez-vous</span></Link></p>
+            <p className="text-sm lg:text-base text-center font-normal text-[#060606] mt-2">Vous avez un compte? <Link to=".."><span className='font-semibold underline underline-offset-2 cursor-pointer'>Connectez-vous</span></Link></p>
           </div>
         </div>
       </div>
