@@ -12,7 +12,7 @@ const createObjectDetailProduct = ((req, res, next) => {
     if (error) {
       console.error("Erreur lors de l'insertion de l'utilisateur", error);
     } else {
-      console.log(results)
+      // console.log(results)
       res.status(200).send(results);
       // Effectuer d'autres actions si nécessaire
     }
@@ -43,28 +43,11 @@ const createNewProduct = ((req, res, next) => {
   })
 })
 
-// const uploadPhoto = ((req, res, next) => {
-//   console.log("Ok upload")
-//   const photoData = req.body;
-//   console.log(photoData)
-//   const photoBuffer = Buffer.from(photoData, 'base64');
-//   const cheminDestination = '../Assets/img_meubles/';
-
-//   // Enregistrez le fichier sur le disque 
-//   fs.writeFile(cheminDestination, photoBuffer, function (err) {
-//     if (err) {
-//       console.error(err);
-//       res.status(500).send('Une erreur est survenue lors de l\'enregistrement de la photo');
-//     } else {
-//       res.send('Photo enregistrée avec succès');
-//     }
-//   });
-// })
 
 const uploadPhoto = (req, res, next) => {
-  console.log("Ok upload");
-  console.log("req.file=",req.file); // Affiche les informations sur le fichier téléchargé
-  console.log("req.file originalname=",req.file.originalname); // Affiche les informations sur le fichier téléchargé
+
+  // console.log("req.file=",req.file); // Affiche les informations sur le fichier téléchargé
+  // console.log("req.file originalname=",req.file.originalname); // Affiche les informations sur le fichier téléchargé
 
   // Déplacez le fichier temporaire vers le dossier de destination final
   const cheminDestination = '../back/Assets/img_meubles/';
