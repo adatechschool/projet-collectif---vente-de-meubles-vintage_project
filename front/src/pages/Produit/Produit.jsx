@@ -46,10 +46,10 @@ function Produit() {
         <p className='ml-[10%] w-full'>Retour à la recherche</p>
         </Link>
       </div>
-      <div className='flex justify-center'>
+      <div className='mt-[40px] flex justify-center'>
       <div className='w-4/5 grid grid-cols-1 lg:grid-cols-2 h-full'>
         {/* Zone Carousel Photos */}
-        <div className='flex justify-center items-center h-auto p-[180px]'>
+        <div className='flex justify-center items-center h-auto'>
           <Slider
           photo={host+":"+port+"/images/"+produitDetail.photo}/>
         </div>
