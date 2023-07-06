@@ -22,7 +22,7 @@ function Main() {
       // const photoResponse = await fetch("https://api.cloudinary.com/v1_1/dnzdkulto")
       // const jsonPhotoData = await photoResponse.json();
 
-      console.log(jsonData);
+      // console.log(jsonData);
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);

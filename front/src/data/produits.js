@@ -12,7 +12,7 @@ const produitsBDD = async ()=>{
     const url = `http://localhost:${port}/meubles`
     const reponse = await fetch(url)
     const jsonData = await reponse.json()
-    console.log(jsonData)
+    // console.log(jsonData)
     return jsonData;
 }
 
