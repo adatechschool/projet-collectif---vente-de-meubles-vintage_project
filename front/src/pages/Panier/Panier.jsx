@@ -3,10 +3,11 @@ import { createContext, useContext, useState} from 'react';
 import { panierContext, reductionContext } from '../../App';
 import { Modal } from '../../composants/Modal/Modal';
 import Navbar from '../../composants/Navbar/Navbar';
+import Footer from '../../composants/Footer/Footer';
 import { Link } from 'react-router-dom';
-
 const port=import.meta.env.VITE_PORT;
 const host=import.meta.env.VITE_HOST;
+
 
 function Panier() {
 
@@ -86,7 +87,10 @@ function Panier() {
       </div>
 
 <section>
-  <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+
+<Navbar/>
+  <div className="mx-auto bg-beige max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+
     <div className="mx-auto max-w-3xl">
       <header className="text-center">
         <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Panier</h1>
@@ -100,8 +104,6 @@ function Panier() {
         <ul className="space-y-4">
           <li className="flex items-center gap-4">
             <img
-              // image générique commentée à mettre si pas de photo disponible ?
-              // src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
               src={host+":"+port+"/images/"+item.photo}
               className="h-16 w-16 rounded object-cover"
             />
@@ -155,6 +157,7 @@ function Panier() {
                 <dd>20%</dd>
               </div>
 
+
               <div class="flex justify-between">
                 <dt>Code Promo</dt>
                 <dd><input placeholder='Code Promo' value={promoMessage} onChange={messageChange} onKeyDown={messagePress} className='  text-right border-solid border-gray-800' onen></input></dd>
@@ -182,6 +185,7 @@ function Panier() {
       </div>
     </div>
   </div>
+  <Footer/>
 </section>
   </>
   )

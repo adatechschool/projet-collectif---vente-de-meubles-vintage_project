@@ -11,7 +11,7 @@ import Footer from '../../composants/Footer/Footer'
 function Admin() {
   
   return (
-    <div>
+    <div className='bg-beige'>
       <Navbar/>
 
       <Table />
