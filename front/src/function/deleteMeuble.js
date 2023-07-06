@@ -12,6 +12,7 @@ function deleteMeuble(id){
         .then(response => {
             console.log(response)
           alert('meuble supprimé')
+          window.location.href = '/admin'
         })
         .catch(error => {
           // Gestion des erreurs

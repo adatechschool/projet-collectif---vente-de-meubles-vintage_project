@@ -8,7 +8,9 @@ function Create() {
     const [titre, setTitre] = useState("");
     const [prix, setPrix] = useState("");
     const [description, setDescription] = useState("");
-    const [photo, setPhoto] = useState("");
+    const [photo, setPhoto] = useState("img_non_dispo.jpg");
+
+    const [file, setFile] = useState("");
 
     // console.log("titre=",titre);
     // console.log("prix=",prix);
@@ -20,6 +22,8 @@ function Create() {
         try {
             // const url = `${host}:${port}/meubles/create`;
             const url = `${host}:${port}/meubles/create`;
+            const urlUpload = `${host}:${port}/upload`;
+
             let res = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -34,8 +38,27 @@ function Create() {
             });
             let resJSON = await res.json();
             if (res.status === 200){
+               
+                //Ajout de la photo dans le dossier serveur
+                const formData = new FormData();
+                formData.append('photo', file);
+
+                let response = await fetch(urlUpload, {
+                    method: "POST",
+                    body: formData
+                });
                 alert(resJSON.message);
-                window.location.href = "/admin"
+                window.location.href = "/accueil"
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("CL upload photo=",data.message);
+                } else {
+                    console.log('Erreur lors du téléchargement du fichier');
+                }
+
+                // alert(resJSON.message);
+                // window.location.href = "/admin"
             } else {
                 alert("Produit non crée")
             }
@@ -49,10 +72,11 @@ function Create() {
 
 
   return (
-    <div>
+    <div className='bg-beige'>
         <Navbar/>
-        <div className='min-h-[75vh]'>Create
-            <div>
+        <div className='flex flex-col mb-10 bg-beige justify-center items-center'>
+            <h1 className='text-base text-dark-brown p-6'>Ajout d'un article à la vente</h1>
+            <div className='w-1vh bg-beige max-w-[1000px]'>
                 <form onSubmit={createProduct}>
                     <input
                         type="text"
@@ -78,24 +102,24 @@ function Create() {
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
-                    {/* Reste à gerer l'image sans photo et l'enregistrement de la photo */}
                     <input
                         type="file"
-                        // value={photo}
-                        placeholder="Photo du produit"
+                        accept=".png, .jpg, .jpeg"
                         className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                        onChange={(e) => {
+                        onChange={async (e) => {
+
                             const file = e.target.files[0];
+                            // console.log("CL file=",file)
                             if (file) {
                               setPhoto(file.name);
-                            }else {
-                                setPhoto("img_non_dispo.jpg")
-                            }
-                        }}
+                              setFile(file);
+                        }
+                    }
+                }
                     />
 
-                    <button type="submit" className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
-                        Créer votre produit
+                    <button type="submit" className='w-full text-beige my-2 font-semibold bg-dark-brown rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
+                        Valider l'ajout de l'article
                     </button>
                    
                 </form>

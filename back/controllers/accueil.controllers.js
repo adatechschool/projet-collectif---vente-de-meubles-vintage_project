@@ -5,7 +5,7 @@ const displayObjectmeubles = ((req,res,next)=>{
       if (error) {
         console.error("Erreur de récupération du meuble", error);
       } else {
-        console.log(results)
+        // console.log(results)
         res.status(200).send(results);
         // Effectuer d'autres actions si nécessaire
       }

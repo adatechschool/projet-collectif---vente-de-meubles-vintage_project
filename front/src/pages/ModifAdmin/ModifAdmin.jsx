@@ -7,8 +7,9 @@ function modificationMeuble () {
     // let navigate = useNavigate()
 
     return(
-        <div>
+        <div className='bg-beige'>
             <Navbar/>
+            <h1 className='text-base text-dark-brown p-6'>Modification d'un article en cours</h1>
             <ModifTable/>
             <Footer/>
         </div>

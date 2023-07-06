@@ -3,38 +3,26 @@
 // import { useState, useEffect } from 'react';
 // import Bouton from '../Bouton/Bouton';
 // import { Link } from 'react-router-dom';
-import { createContext,useContext} from 'react';
+import { createContext,useContext, useEffect} from 'react';
 import { panierContext } from '../../App';
 
-// const [itemPanier, setItemPanier] = useState([]);
-
-// useEffect(() =>{
-//     if(addToPanier)
-//     localStorage.setItemPanier(, JSON.stringify(itemPanier));
-// }, [itemPanier])
-
-
-
-
-
-
-const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponibilite }) => {
+const Detail = ({id, nom, prix, description, photo, hauteur, largeur, longueur, disponibilite }) => {
 
     const {setPanier} = useContext(panierContext)
     const {panier} = useContext(panierContext)
-    const addToPanier = (a) => {
+    const addToPanier = () => {
         // setPanier((e) => e + 1)
-        let cart = {nom, prix}
+        let cart = {nom, prix, photo}
         // opérateur de décomposition
         setPanier((a) => [...a, cart])
-        console.log(a, 'ok');
+        // console.log(a, 'ok');
         console.log('meuble ajoute');
-        console.log(panier);
+        // console.log("panier", (panier));
     }
     
 
     return (
-        <div className="flex flex-col justify-center items-center w-full h-full space-y-6  m-auto p-10" key={id}>
+        <div className="flex flex-col justify-center items-center w-full h-full space-y-4  m-auto p-4" key={id}>
             <h1>{nom}</h1>
             <p>{description}</p>
             <p>Dimension : {hauteur} x {largeur} x {longueur} </p>

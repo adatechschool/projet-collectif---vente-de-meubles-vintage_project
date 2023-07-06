@@ -31,7 +31,7 @@ function Produit() {
     try {
       const response = await fetch(`http://localhost:${port}/meubles/${id}`);
       const jsonData = await response.json();
-      console.log(jsonData)
+      // console.log(jsonData)
       setproduitDetail(jsonData[0]);
     } catch (error) {
       console.log("Error:", error);
@@ -46,6 +46,7 @@ function Produit() {
         <p className='ml-[10%] w-full'>Retour à la recherche</p>
         </Link>
       </div>
+
       <div className='mt-[40px] flex justify-center'>
       <div className='w-4/5 grid grid-cols-1 lg:grid-cols-2 h-full'>
         {/* Zone Carousel Photos */}
@@ -55,13 +56,14 @@ function Produit() {
         </div>
 
         {/* Zone Texte Détails Meubles */}
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-left'>
           {/* requête : from table meuble where id = id de la viguette sélectionné  */}
           <Detail
             id={id}
             nom={produitDetail.titre ?? "..."}
             prix={produitDetail.prix ?? "..."}
             description={produitDetail.description ?? "..."}
+            photo={produitDetail.photo}
             hauteur={produitDetail.hauteur}
             largeur={produitDetail.largeur}
             longueur={produitDetail.longueur}

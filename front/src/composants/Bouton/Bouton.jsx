@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Bouton = ({onClick, texteBouton}) => {
+const Bouton = ({onClick, texteBouton, classbouton}) => {
   return (
-    <div>
+    <div className={classbouton}>
 
       <button onClick={ onClick } >{texteBouton}</button>
 

@@ -6,8 +6,8 @@ const host=import.meta.env.VITE_HOST;
 
 function Main() {
 
+
   const [data, setData] = useState(null);
-  // const [photoData, setphotoData] = useState(null)
 
   useEffect(() => {
     fetchData();
@@ -19,7 +19,7 @@ function Main() {
 
       const jsonData = await response.json();
 
-      console.log(jsonData);
+      // console.log(jsonData);
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);
@@ -30,7 +30,7 @@ function Main() {
 
   return (
   // <div id="main" className="grid flex justify-center gap-4 grid-cols-3 grid-rows-3">
-  <div id="main" className="grid">
+  <div id="main" className="grid bg-beige">
 
    {/* <div id="main" > */}
       {data ? (
