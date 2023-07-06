@@ -2,6 +2,9 @@ import React from 'react'
 import { createContext, useContext, useState} from 'react';
 import { panierContext } from '../../App';
 import { Modal } from '../../composants/Modal/Modal';
+import Navbar from '../../composants/Navbar/Navbar';
+import Footer from '../../composants/Footer/Footer';
+import ChairIcon from '@mui/icons-material/Chair';
 
 function Panier() {
 
@@ -50,35 +53,38 @@ function Panier() {
  
 
 <section>
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <div class="mx-auto max-w-3xl">
-      <header class="text-center">
-        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Panier</h1>
+<Navbar/>
+  <div className="mx-auto bg-beige max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div className="mx-auto max-w-3xl">
+      <header className="text-center">
+        <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Panier</h1>
       </header>
 
-      <div class="mt-8">
+      <div className="mt-8">
       {panier.map((item) => (
-        <div class="mt-8 border-t border-gray-400 pt-8">
-        <ul class="space-y-4">
-          <li class="flex items-center gap-4">
-            <img
-              src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-              class="h-16 w-16 rounded object-cover"
-            />
+        <div className="mt-8 border-t border-gray-400 pt-8">
+        <ul className="space-y-4">
+          <li className="flex items-center gap-4">
+            <ChairIcon/>
+            {/* <img
+               src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
+              
+              className="h-16 w-16 rounded object-cover"
+            /> */}
 
             <div>
-              <h3 class="text-base  text-gray-900">{item.nom}</h3>
+              <h3 className="text-base  text-gray-900">{item.nom}</h3>
 
             </div>
 
-            <div class="flex flex-1 items-center justify-end gap-2 font-medium text-base">
+            <div className="flex flex-1 items-center justify-end gap-2 font-medium text-base">
               <p>{item.prix}€</p>
     
 
-              <button class="text-gray-600 transition hover:text-red-600"
+              <button className="text-gray-600 transition hover:text-red-600"
               onClick={() => removeItemFromPanier(item.id)}
               >
-                <span class="sr-only">Supprimer</span>
+                <span className="sr-only">Supprimer</span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +92,7 @@ function Panier() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="h-4 w-4"
+                  className="h-4 w-4"
                 >
                   <path
                     stroke-linecap="round"
@@ -102,25 +108,25 @@ function Panier() {
         </div>
       ))}
 
-        <div class="mt-8 flex justify-end border-t border-gray-400 pt-8">
-          <div class="w-screen max-w-lg space-y-4">
-            <dl class="space-y-0.5 text-sm text-gray-700">
-              <div class="flex justify-between">
+        <div className="mt-8 flex justify-end border-t border-gray-400 pt-8">
+          <div className="w-screen max-w-lg space-y-4">
+            <dl className="space-y-0.5 text-sm text-gray-700">
+              <div className="flex justify-between">
                 <dt>Sous-total</dt>
                 <dd>{subtotals}€</dd>
               </div>
 
-              <div class="flex justify-between">
+              <div className="flex justify-between">
                 <dt>Taxes incluses</dt>
                 <dd>20%</dd>
               </div>
 
-              <div class="flex justify-between">
+              <div className="flex justify-between">
                 <dt>Promo du jour</dt>
                 <dd>{promotion}€</dd>
               </div>
 
-              <div class="flex justify-between !text-base font-medium ">
+              <div className="flex justify-between !text-base font-medium ">
                 <dt>Total</dt>
                 <dd>{total}€</dd>
               </div>
@@ -128,7 +134,7 @@ function Panier() {
 
 
 
-            <div class="flex flex-col items-center justify-end">
+            <div className="flex flex-col items-center justify-end">
               <button
                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                onClick={openModal}> Payer en boutique</button>
@@ -141,6 +147,7 @@ function Panier() {
       </div>
     </div>
   </div>
+  <Footer/>
 </section>
   </>
   )

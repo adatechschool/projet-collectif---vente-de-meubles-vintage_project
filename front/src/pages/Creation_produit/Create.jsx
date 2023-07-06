@@ -49,10 +49,11 @@ function Create() {
 
 
   return (
-    <div>
+    <div className='bg-beige'>
         <Navbar/>
-        <div className='min-h-[75vh]'>Create
-            <div>
+        <div className='flex flex-col mb-10 bg-beige justify-center items-center'>
+            <h1 className='text-base text-dark-brown p-6'>Ajout d'un article à la vente</h1>
+            <div className='w-1vh bg-beige max-w-[1000px]'>
                 <form onSubmit={createProduct}>
                     <input
                         type="text"
@@ -94,8 +95,8 @@ function Create() {
                         }}
                     />
 
-                    <button type="submit" className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
-                        Créer votre produit
+                    <button type="submit" className='w-full text-beige my-2 font-semibold bg-dark-brown rounded-md p-4 text-center flex items-center justify-center mt-12 mb-12'>
+                        Valider l'ajout de l'article
                     </button>
                    
                 </form>

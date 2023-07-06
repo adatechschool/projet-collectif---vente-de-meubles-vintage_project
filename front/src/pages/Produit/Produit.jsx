@@ -49,12 +49,12 @@ function Produit() {
       
       <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
         {/* Zone Carousel Photos */}
-        <div className='flex justify-center items-center h-auto'>
-          <img src={host+":"+port+"/images/"+produitDetail.photo}></img>
+        <div className='flex justify-center items-center '>
+          <img className='max-w-90 max-h-90' src={host+":"+port+"/images/"+produitDetail.photo}></img>
         </div>
 
         {/* Zone Texte Détails Meubles */}
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-left'>
           {/* requête : from table meuble where id = id de la viguette sélectionné  */}
           <Detail
             id={id}

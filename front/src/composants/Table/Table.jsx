@@ -28,8 +28,8 @@ function Table() {
     };
 
     return (
-        <div className='flex flex-col justify-around items-center min-h-[75vh] mt-3'>
-            <table className='border-4 table-auto mx-auto'>
+        <div className='flex bg-beige flex-col justify-around items-center min-h-[75vh] mt-5'>
+            <table className='border-4 bg-white table-auto mx-auto'>
                 <thead className="text-red-600">
                     <tr>
                         <th className='border-2 text-2xl'>Nom</th>

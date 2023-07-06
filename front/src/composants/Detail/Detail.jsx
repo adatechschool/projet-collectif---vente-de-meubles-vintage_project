@@ -34,7 +34,7 @@ const Detail = ({id, nom, prix, description, hauteur, largeur, longueur, disponi
     
 
     return (
-        <div className="flex flex-col justify-center items-center w-full h-full space-y-6  m-auto p-10" key={id}>
+        <div className="flex flex-col justify-center items-center w-full h-full space-y-4  m-auto p-4" key={id}>
             <h1>{nom}</h1>
             <p>{description}</p>
             <p>Dimension : {hauteur} x {largeur} x {longueur} </p>
