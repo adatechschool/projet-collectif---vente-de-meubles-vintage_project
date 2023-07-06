@@ -1,111 +1,132 @@
 const mysql = require('mysql');
-const connect  = require('../sql/connexion');
+const connect = require('../sql/connexion');
+const bcrypt = require('bcrypt');
 
-const createObject = ((req,res,next)=>{
-     const nom = req.body.name
-     const prenom = req.body.firstname
-     const email = req.body.email
-     const mdp = req.body.password
-     const values = [
-      nom,
-      prenom,
-      email,
-      mdp
-     ]
+// Importer la fonction hashPassword
+const { hashPassword } = require('./passwordEncryption');
 
-    
-     const query = "INSERT INTO test_users (nom, prenom, email, mdp) VALUES (?,?,?,?)"
-     connect.query(query, values, (error, results) => {
-      if (error) {
-        console.error("Erreur lors de l'insertion de l'utilisateur", error);
-      } else {
-        console.log("Utilisateur inséré avec succès");
-        res.status(200).send({message: "Utilisateur inséré avec succès"});
-        // Effectuer d'autres actions si nécessaire
-      }
-  
-      // Fermer la connexion à la base de données
-      // connect.end();
-    });
-})
+// fonction est utilisée pour créer un nouvel objet dans la base de données
+// Fonction asynchrone pour créer un nouvel objet utilisateur dans la base de données
+const createObject = async (req, res, next) => {
+    // Extraction des valeurs
+  const { name, firstname, email, password } = req.body;
 
-const checkUserExists =((req,res, next) =>{
-  const email = req.body.email
-  console.log(email)
-  // const exists = "EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "')"
-  // const query = "SELECT " + exists;
+try {
+  // Hacher le mot de passe
+  const hashedPassword = await hashPassword(password); // Hachage du mot de passe
 
-  const query2 = "SELECT EXISTS(SELECT 1 FROM test_users WHERE email = '" + email + "') as emailCheck "
-  connect.query(query2, (error, result)=> {
-    console.log("result",result)
-    // console.log("connectquery ?", result[0][exists])
+  const values = [name, firstname, email, hashedPassword]; // Création d'un tableau de valeurs à insérer dans la requête SQL
+  const query = "INSERT INTO test_users (nom, prenom, email, mdp) VALUES (?,?,?,?)"; // Requête SQL d'insertion d'un nouvel utilisateur
+
+  // Exécuter la requête SQL
+  connect.query(query, values, (error, results) => { // Appel de la méthode query pour exécuter la requête SQL
     if (error) {
-      console.error("Erreur ", error);
+      console.error("Erreur lors de l'insertion de l'utilisateur", error); 
+      res.status(500).json({ error: "Erreur lors de l'insertion de l'utilisateur" }); 
+    } else {
+      console.log("Utilisateur inséré avec succès"); 
+      res.status(200).json({ message: "Utilisateur inséré avec succès" }); 
     }
-    else if(result[0]['emailCheck']===1){
-      console.log("utilisateur trouvé : ", result)
-      res.status(200).send({message: "Utilisateur ok LOGIN"})
-    }
-    else if(result[0]['emailCheck']===0){
-      console.log("user not found")
-      res.status(200).send({message: "NON LOGIN"})
-    }
-    // connect.end();
-  })
-})
+  });
+} catch (error) {
+  console.log(error.message); 
+  res.status(500).json({ error: error.message }); 
+}
+}
 
+// Fonction pour vérifier si un utilisateur existe
+const checkUserExists = (req, res, next) => {
+  const { email } = req.body;
 
+  // Requête SQL pour compter le nombre d'utilisateurs ayant l'email spécifié
+  const query = "SELECT COUNT(*) AS count FROM test_users WHERE email = ?";
 
-const checkedUser = (req, res, next) => {
-  let email = req.body.email;
-  if (email) {
-    connect.query('SELECT * FROM test_users WHERE email = ?', [email], function(error, results) {
-      // If there is an issue with the query, output the error
-      if (error) throw error;
-      // If the account exists
-      if (results.length > 0) {
-        req.session.loggedin = true;
-        req.session.email = email;
-        res.redirect('/accueil');
+  // Exécution de la requête SQL 
+  connect.query(query, [email], (error, result) => {
+    if (error) {
+      console.error("Erreur lors de la vérification de l'existence de l'utilisateur", error);
+      res.status(500).json({ error: "Erreur lors de la vérification de l'existence de l'utilisateur" });
+    } else {
+      const emailCheck = result[0].emailCheck;
+      if (emailCheck === 1) {
+        console.log("Utilisateur trouvé");
+        res.status(200).json({ message: "Utilisateur trouvé" });
+      } else if (emailCheck === 0) {
+        console.log("Utilisateur non trouvé");
+        res.status(404).json({ message: "Utilisateur non trouvé" });
+      } else {
+        console.error("Résultat de la vérification de l'existence de l'utilisateur non valide");
+        res.status(500).json({ error: "Erreur lors de la vérification de l'existence de l'utilisateur" });
       }
-      next()
-    });
-  }
-
-  // connect.end() 
-
+    }
+  });
 };
 
-const checkLogin = ((req, res, next) => {
-  let email = req.body.email;
-	let password = req.body.password;
+// Fonction pour vérifier l'utilisateur
+const checkedUser = (req, res, next) => {
+  const { email } = req.body;
 
-	if (email && password) {
-		// Execute SQL query that'll select the account from the database based on the specified email and password
-		connect.query('SELECT * FROM test_users WHERE email = ? AND mdp = ?', [email, password], function(error, results, fields) {
-			// If there is an issue with the query, output the error
-			if (error) throw error;
-			// If the account exists
-			if (results.length > 0) {
-				// Authenticate the user
+  if (email) {
+    connect.query('SELECT * FROM test_users WHERE email = ?', [email], function (error, results) {
+      if (error) {
+        console.error("Erreur lors de la vérification de l'utilisateur", error);
+        res.status(500).json({ error: "Erreur lors de la vérification de l'utilisateur" });
+      } else {
+        if (results.length > 0) {
+        // Si des résultats sont retournés, signifie qu'un utilisateur existe
+          req.session.loggedin = true;
+          req.session.email = email;
+          res.redirect('/accueil');// Rediriger l'utilisateur vers la page "/accueil"
+        } else {
+          next();
+        }
+      }
+    });
+  }
+};
 
-				// req.session.loggedin = true;
-				// req.session.email = email;
 
-				// Redirect to home page
+const checkLogin = (req, res) => {
+  const { email, password } = req.body;
 
-				// res.redirect('/home');
-        res.status(200).send({message:`Log in OK : ${email}, ${password}`});
-			} else {
-        res.status(401).send({message:`Incorrect email and/or Password!`})
-				// res.send('Incorrect email and/or Password!');
-			}			
-			res.end();
-		});
-	} else {
-		res.send('Please enter email and Password!');
-		res.end();
-	}
-})
+  if (email && password) {
+		connect.query('SELECT mdp FROM test_users WHERE email = ? ', [email], function(error, results) {
+      
+      if (error) {
+        console.error("Erreur lors de la vérification de la connexion", error);
+        res.status(500).json({ error: "Erreur lors de la vérification de la connexion" });
+      } else {
+        if (results.length > 0) {
+          const hashedPassword = results[0].mdp;
+          bcrypt.compare(password, hashedPassword, (err, result) => {
+            if (err) {
+              console.error("Erreur lors de la comparaison des mots de passe", err);
+              res.status(500).json({ error: "Erreur lors de la comparaison des mots de passe" });
+            } else {
+              if (result) {
+                console.log("Succès : Connexion réussie");
+                res.status(200).json({ message: `Connexion OK : ${email}` });
+              } else {
+                console.log("Échec : Mot de passe incorrect");
+                res.status(401).json({ message: "Échec de la connexion : Mot de passe incorrect" });
+              }
+            }
+          });
+        } else {
+          console.log("Échec : Utilisateur non trouvé");
+          res.status(404).json({ message: "Échec de la connexion : Utilisateur non trouvé" });
+        }
+      }
+    });
+  } else {
+    console.log("Échec : Email et/ou mot de passe non fourni(s)");
+    res.status(400).json({ message: "Échec de la connexion : Email et/ou mot de passe non fourni(s)" });
+  }
+};
 
-module.exports = {createObject, checkUserExists, checkedUser, checkLogin}
+module.exports = {
+  createObject,
+  checkUserExists,
+  checkedUser,
+  checkLogin
+};
