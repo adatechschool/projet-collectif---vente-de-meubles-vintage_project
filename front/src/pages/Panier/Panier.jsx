@@ -61,7 +61,7 @@ function Panier() {
     setEffectivePromotion(codePromo);
     let newTotal = subtotals - codePromo();
     newTotal > 0 ? setTotal(newTotal) : setTotal(0)
-  },[promoUpdated])
+  },[promoUpdated, panier])
 
   const removeItemFromPanier = (indexInLocalStorage) => {
     let newCart = JSON.parse(localStorage.getItem('cartItems'));
