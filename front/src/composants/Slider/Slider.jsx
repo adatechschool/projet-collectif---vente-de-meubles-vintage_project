@@ -25,7 +25,7 @@ const Slider = ({photo}) => {
     src={PapierPeint}
     alt='...'
   >
-    <h5 className="text-dark-brown mb-[80px]">Ne passez pas à côté de cette belle opportunité ! </h5>
+    <h5 className="text-dark-brown mb-[70px]">Ne passez pas à côté de cette belle opportunité ! </h5>
     <p></p>
   </MDBCarouselItem>
 

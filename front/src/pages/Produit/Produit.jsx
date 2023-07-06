@@ -46,10 +46,10 @@ function Produit() {
         <p className='ml-[10%] w-full'>Retour à la recherche</p>
         </Link>
       </div>
-      
-      <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
+      <div className='flex justify-center'>
+      <div className='w-4/5 grid grid-cols-1 lg:grid-cols-2 h-full'>
         {/* Zone Carousel Photos */}
-        <div className='flex justify-center items-center h-auto p-[150px]'>
+        <div className='flex justify-center items-center h-auto p-[180px]'>
           <Slider
           photo={host+":"+port+"/images/"+produitDetail.photo}/>
         </div>
@@ -68,6 +68,7 @@ function Produit() {
             disponibilite={produitDetail.disponibilite}
             categorie={produitDetail.categorie}
           />
+          </div>
         </div>
       </div>
     </div>
