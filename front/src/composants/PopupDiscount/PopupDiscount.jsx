@@ -1,13 +1,14 @@
 
 import React from 'react'
 import discount from './discount.jpg'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import DiscountIcon from '@mui/icons-material/Discount';
+import { reductionContext } from '../../App';
 
 const PopupDiscount = () => {
 
-  let promotion = 5
+  let [promotionString, promotion] = useContext(reductionContext)
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -30,7 +31,7 @@ const PopupDiscount = () => {
           
             <h1 className=' font-bold '> Profitez des soldes</h1>
             <h2><DiscountIcon/>{promotion}€ offert avec le code </h2>
-            <h2 className='  font-bold '> ADATECH </h2>
+            <h2 className='  font-bold '> {promotionString} </h2>
            <div className='mt-4 float-right'>
               <CloseIcon className=' cursor-pointer '
                 onClick={handleClose}

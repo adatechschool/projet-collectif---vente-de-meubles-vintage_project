@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import Icon_admin from '../Icon_admin/Icon_admin';
 import { panierContext } from '../../App';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 // const verifAdmin = false;
 const verifAdmin = true;
@@ -24,14 +24,13 @@ const CustomBadge = styled(Badge)(({ theme }) => ({
 function Navbar() {
   const {panier} = useContext(panierContext)
 
-
   const backgroundStyle = {
     backgroundImage: "url('/src/assets/logo-sun.png')",
     backgroundRepeat: 'no-repeat',
     backgroundPosition: "center",
   };
 
-  console.log("navbar", {panier});
+  // console.log("navbar", {panier});
 
   return (
     <div className='bg-beige h-32' style={backgroundStyle}>
