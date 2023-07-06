@@ -42,7 +42,7 @@ export const Modal = ({ showModal, setShowModal }) => {
               <div className='content-center items-center  text-sm space-y-6'>
                 <h1>La réservation est un succès</h1>
                 <p>Vos meubles vous attendent en magasin</p>
-                <p>Ada Vintage Boutique : 116 rue du faubourg</p>
+                <p>Ada Vintage Boutique : 116 rue du faubourg St-Martin 75010 Paris </p>
                 <Link to="/accueil">
                 <button className=' p-3 mt-6 bg-[#1c384d] rounded-lg w-full text-white'>Revenir à l'Accueil</button>
                 </Link>

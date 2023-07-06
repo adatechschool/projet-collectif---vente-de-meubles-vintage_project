@@ -47,7 +47,7 @@ function Login() {
       <div className= 'relative w-1/2 h-full flex flex-col' >
         <div className= 'absolute top-[10%] left-[10%] right-[10%] flex flex-col bg-beige opacity-[.85]'>
           <h1 className="text-2xl text-dark-brown font-bold my-4 drop-shadow-lg">Transformez votre intérieur avec nos meubles vintage uniques</h1>
-          <p className="text-xl text-dark-brown font-normal drop-shadow-lg">Commencez gratuitement et bénéficiez des offres attractives de la communauté. </p>
+          <p className="text-xl mb-2 text-dark-brown font-normal drop-shadow-lg">Commencez gratuitement et bénéficiez des offres attractives de la communauté. </p>
         </div>
         <img src={COVER_IMAGE} className="w-full h-screen object-cover "/>
       </div>

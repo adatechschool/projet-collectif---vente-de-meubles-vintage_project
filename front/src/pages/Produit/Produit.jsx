@@ -47,10 +47,10 @@ function Produit() {
         </Link>
       </div>
       
-      <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
+      <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[800px]'>
         {/* Zone Carousel Photos */}
         <div className='flex justify-center items-center '>
-          <img className='max-w-90 max-h-90' src={host+":"+port+"/images/"+produitDetail.photo}></img>
+          <img className='max-w-90 h-90' src={host+":"+port+"/images/"+produitDetail.photo}></img>
         </div>
 
         {/* Zone Texte Détails Meubles */}
