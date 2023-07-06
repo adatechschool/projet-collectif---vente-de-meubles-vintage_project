@@ -31,7 +31,7 @@ function Produit() {
     try {
       const response = await fetch(`http://localhost:${port}/meubles/${id}`);
       const jsonData = await response.json();
-      console.log(jsonData)
+      // console.log(jsonData)
       setproduitDetail(jsonData[0]);
     } catch (error) {
       console.log("Error:", error);

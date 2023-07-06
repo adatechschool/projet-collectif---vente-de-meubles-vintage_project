@@ -19,7 +19,7 @@ function Main() {
 
       const jsonData = await response.json();
 
-      console.log(jsonData);
+      // console.log(jsonData);
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);
