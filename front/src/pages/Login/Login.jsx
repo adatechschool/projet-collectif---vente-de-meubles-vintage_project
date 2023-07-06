@@ -27,18 +27,25 @@ function Login() {
         })
       });
       let resJson = await res.json();
+      console.log(resJson);
+      console.log(res);
+      
       if (res.status === 200) {
-        alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
-        window.location.href = "/accueil" // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
+        // alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
+        window.location.href = "/accueil"; // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
+      } else if (res.status === 401) {
+        alert("Échec de la connexion : Mot de passe incorrect");
+      } else if (res.status === 404) {
+        alert("Échec de la connexion : Utilisateur non trouvé");
+      } else if (res.status === 400) {
+        alert("Échec de la connexion : Email et/ou mot de passe non fourni(s)");
       } else {
-        alert("Login Erreur")
+        alert("Erreur lors de la connexion");
       }
     } catch (err) {
       console.log(err);
     }
   }
-
-
 
   return (
     <div className= "w-full min-h-screen flex items-start bg-[#f5f5f5]">
@@ -61,7 +68,7 @@ function Login() {
           </div>
 
           <div className='w-full flex flex-col'>
-            <form onSubmit={loginUser}>
+            <form>
               <input
                 type="email"
                 placeholder='Email'
@@ -91,7 +98,7 @@ function Login() {
               <div className='w-full flex flex-col my-8'>
                 <div className='w-full text-[#ffffff] my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center'>
                   {/* <Link to="/accueil"><Bouton texteBouton='Test'/></Link> */}
-                  <Bouton onClick={handleClick2} texteBouton='Log in'/> 
+                  <Bouton onClick={loginUser} texteBouton='Log in'/> 
                 </div>
               </div>
             </form>  
