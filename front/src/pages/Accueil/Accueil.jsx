@@ -5,6 +5,7 @@ import Main from '../../composants/Main/Main';
 import Footer from '../../composants/Footer/Footer';
 
 function Accueil() {
+
   return (
     <div>
       <Navbar/>

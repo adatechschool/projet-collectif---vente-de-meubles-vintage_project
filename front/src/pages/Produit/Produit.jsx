@@ -31,7 +31,7 @@ function Produit() {
     try {
       const response = await fetch(`http://localhost:${port}/meubles/${id}`);
       const jsonData = await response.json();
-      console.log(jsonData)
+      // console.log(jsonData)
       setproduitDetail(jsonData[0]);
     } catch (error) {
       console.log("Error:", error);
@@ -61,6 +61,7 @@ function Produit() {
             nom={produitDetail.titre ?? "..."}
             prix={produitDetail.prix ?? "..."}
             description={produitDetail.description ?? "..."}
+            photo={produitDetail.photo}
             hauteur={produitDetail.hauteur}
             largeur={produitDetail.largeur}
             longueur={produitDetail.longueur}

@@ -20,7 +20,7 @@ function Table() {
         try {
             const response = await fetch(`http://localhost:${port}/meubles`);
             const jsonData = await response.json();
-            console.log("coucou", jsonData);
+            // console.log("coucou", jsonData);
             setData(jsonData);
         } catch (error) {
             console.log("Error:", error);

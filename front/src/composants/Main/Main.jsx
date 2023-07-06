@@ -6,8 +6,8 @@ const host=import.meta.env.VITE_HOST;
 
 function Main() {
 
+
   const [data, setData] = useState(null);
-  // const [photoData, setphotoData] = useState(null)
 
   useEffect(() => {
     fetchData();
@@ -19,7 +19,7 @@ function Main() {
 
       const jsonData = await response.json();
 
-      console.log(jsonData);
+      // console.log(jsonData);
       setData(jsonData);
     } catch (error) {
       console.log("Error:", error);
