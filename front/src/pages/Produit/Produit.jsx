@@ -49,8 +49,9 @@ function Produit() {
       
       <div className='w-full grid grid-cols-1 lg:grid-cols-2 h-[600px]'>
         {/* Zone Carousel Photos */}
-        <div className='flex justify-center items-center h-auto'>
-          <img src={host+":"+port+"/images/"+produitDetail.photo}></img>
+        <div className='flex justify-center items-center h-auto p-[150px]'>
+          <Slider
+          photo={host+":"+port+"/images/"+produitDetail.photo}/>
         </div>
 
         {/* Zone Texte Détails Meubles */}
